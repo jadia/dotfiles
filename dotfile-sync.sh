@@ -49,4 +49,5 @@ if [[ -n $(git status -s) ]]; then
 #	if [[ $? -ne 0 ]]; then
 #		git commit -s -a -m "$(curl -s whatthecommit.com/index.txt)"
 #	fi
+        git push
 fi
