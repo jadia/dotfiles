@@ -45,6 +45,8 @@ if [[ -n $(git status -s) ]]; then
 	echo $DASHLINE
 	git add .
 	#git yolo
+        # Wait till machine is online
+        until ping -c 1 8.8.8.8 &> /dev/null; do sleep 3; done
 	git commit -s -a -m "$(curl -s whatthecommit.com/index.txt)"
 #	if [[ $? -ne 0 ]]; then
 #		git commit -s -a -m "$(curl -s whatthecommit.com/index.txt)"

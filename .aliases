@@ -9,6 +9,10 @@ alias listvm='sudo virsh list --all'
 alias rsync='rsync -avzhP'
 alias downit='aria2c -x16'
 alias til='cd /home/nitish/til'
+alias ctx='kubectx'
+
+# Git
+alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 
 #Local VM
 alias atlantis='ssh th3nyx@192.168.122.99'

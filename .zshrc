@@ -65,7 +65,7 @@ plugins=(git kubectl minikube docker virtualenv zsh-autosuggestions)
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="dd/mm/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -78,7 +78,7 @@ plugins=(git kubectl minikube docker virtualenv zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
+# User configuration for terminal
 SPACESHIP_USER_SHOW="always"
 SPACESHIP_CHAR_SYMBOL=" >"
 SPACESHIP_CHAR_SUFFIX=" "
@@ -119,9 +119,10 @@ source /home/nitish/.aliases
 # GPG issue fix https://stackoverflow.com/questions/39494631/gpg-failed-to-sign-the-data-fatal-failed-to-write-commit-object-git-2-10-0
 export GPG_TTY=$(tty)
 
-# TMUX should be the last command to execute, so keep it as last line
-#tmux
+# Autocomplete for kubectx
+autoload -U compinit && compinit
 
+# Functions
 startvm() { if  virsh start $1; then; sleep 8s; fi; ssh th3nyx@$1; }
 
 penmount() { sudo mount -o rw,user,exec,umask=000 /dev/$1 /mnt/tmp; }
@@ -129,7 +130,7 @@ penmount() { sudo mount -o rw,user,exec,umask=000 /dev/$1 /mnt/tmp; }
 hddoff() { sudo udisksctl power-off -b /dev/$1; }
 
 localServer() { if [[ $1 == 'start' ]]; then; docker run --rm --name local-nginx -v ~/Documents/localShare:/usr/share/nginx/html:ro -v ~/Documents/localShare/default.conf:/etc/nginx/conf.d/default.conf -p 80:80 -d nginx; fi; if [[ $1 == 'stop' ]]; then; docker stop local-nginx; fi; }
-alias config='/usr/bin/git --git-dir=/home/nitish/.cfg/ --work-tree=/home/nitish'
+#alias config='/usr/bin/git --git-dir=/home/nitish/.cfg/ --work-tree=/home/nitish'
 
 docker-restore() { unset DOCKER_TLS_VERIFY; unset DOCKER_HOST; unset DOCKER_CERT_PATH; unset DOCKER_MACHINE_NAME; }
 
