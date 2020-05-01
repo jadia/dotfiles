@@ -198,13 +198,13 @@ bindsym $mod+g exec google-chrome
 # Blank screen
 #bindsym $mod+x exec i3lock -c 000000 
 # with wallpaper
-bindsym $mod+x exec i3lock -i /home/nitish/Pictures/buzz-andersen-E4944K_4SvI-unsplash.png
+bindsym $mod+x exec i3lock -i /home/nitish/Pictures/buzz-andersen-E4944K_4SvI-unsplash_1920x1271.png
 #bindsym $mod+x exec i3lock -i /home/nitish/feh-bg/debian_metal_png.png
 
 # Background
 #exec --no-startup-id feh --bg-scale /home/nitish/feh-bg/naruto-face.jpg
 #exec --no-startup-id feh --bg-scale /home/nitish/feh-bg/think_correctly_debian.jpg
-exec --no-startup-id feh --bg-scale /home/nitish/Pictures/john-towner-JgOeRuGD_Y4-unsplash.jpg
+exec --no-startup-id feh --bg-scale /home/nitish/Pictures/john-towner-JgOeRuGD_Y4-unsplash-compressed.jpg
 
 #Battery notification
 exec --no-startup-id i3-battery-popup -N -L 50

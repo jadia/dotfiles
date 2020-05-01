@@ -1,11 +1,13 @@
 # If you come from bash you might have to change your $PATH.
 
+#zmodload zsh/zprof
+
 export PATH=$HOME/bin:/usr/local/bin:/sbin:/usr/sbin:$PATH
 # Add golang to path
-export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:$(go env GOPATH)/bin
+#export PATH=$PATH:/usr/local/go/bin
+#export PATH=$PATH:$(go env GOPATH)/bin
 # Add snap path
-export PATH=$PATH:/snap/bin
+#export PATH=$PATH:/snap/bin
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
@@ -21,7 +23,9 @@ ZSH_THEME="spaceship"
 
 
 ######### PLUGINS ###########
-plugins=(git kubectl minikube docker virtualenv zsh-autosuggestions)
+plugins=(git kubectl minikube docker zsh-autosuggestions)
+#virtualenv
+
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -134,6 +138,7 @@ localServer() { if [[ $1 == 'start' ]]; then; docker run --rm --name local-nginx
 
 docker-restore() { unset DOCKER_TLS_VERIFY; unset DOCKER_HOST; unset DOCKER_CERT_PATH; unset DOCKER_MACHINE_NAME; }
 
+#zprof
 ## Stole from arush-sal
  if [ "$TMUX" = "" ]; then
  	 if [[ -n $(pgrep tmux) ]]; then	
@@ -142,3 +147,4 @@ docker-restore() { unset DOCKER_TLS_VERIFY; unset DOCKER_HOST; unset DOCKER_CERT
 		 tmux new-session -s 0
 	 fi
  fi
+
