@@ -1,4 +1,6 @@
 #!/bin/bash
+# Author: https://github.com/arush-sal/dotfiles/blob/master/dotfile-sync.sh
+# Modified: Nitish Jadia
 
 DOTDIR="$HOME/dotfiles"
 LOGFILE="$HOME/dotsync.log"
@@ -9,7 +11,6 @@ checkdiff() {
 		cp -vrf $1 $2 >> $LOGFILE
 	fi
 	if ! diff $1 $2 &> /dev/null; then
-		ntfy send "Sync for $1 started..."
 		echo >> $LOGFILE
 		echo -e "\t\t$1 has been modified" >> $LOGFILE
 		echo "$DASHLINE DIFF START $DASHLINE" >> $LOGFILE
@@ -52,4 +53,5 @@ if [[ -n $(git status -s) ]]; then
 #		git commit -s -a -m "$(curl -s whatthecommit.com/index.txt)"
 #	fi
         git push
+        ntfy send "Success: Dotfiles Backup"
 fi
