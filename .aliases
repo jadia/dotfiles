@@ -19,7 +19,7 @@ alias atlantis='ssh th3nyx@192.168.122.99'
 alias virsh='sudo virsh'
 
 # Docker
-
+alias docker_clear='docker rm $(docker ps -aq)'
 
 
 # Kubernetes
