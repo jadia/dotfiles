@@ -53,5 +53,9 @@ if [[ -n $(git status -s) ]]; then
 #		git commit -s -a -m "$(curl -s whatthecommit.com/index.txt)"
 #	fi
         git push
-        ntfy send "Success: Dotfiles Backup"
+	if [[ $? -eq 0 ]]; then
+            ntfy send "Success: Dotfiles Backup"
+        else
+            ntfy send "FAILED: Dotfiles Backup"
+        fi 
 fi
