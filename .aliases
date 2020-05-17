@@ -11,6 +11,7 @@ alias downit='aria2c -x16'
 alias til='cd /home/nitish/til'
 alias ctx='kubectx'
 alias cns='kubens'
+alias ndone='ntfy done'
 
 # Git
 alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
