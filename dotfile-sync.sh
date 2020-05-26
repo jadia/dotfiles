@@ -24,8 +24,13 @@ checkdiff() {
 }
 
 ##Files
+
 # Sync .zshrc
+mkdir -p $DOTDIR/.oh-my-zsh/custom
 checkdiff ~/.zshrc $DOTDIR/.zshrc
+checkdiff ~/.oh-my-zsh/custom/func.zsh $DOTDIR/.oh-my-zsh/custom/func.zsh
+checkdiff ~/.oh-my-zsh/custom/env.zsh $DOTDIR/.oh-my-zsh/custom/env.zsh
+
 # Sync .tmux
 mkdir -p $DOTDIR/.tmux
 checkdiff ~/.tmux.conf $DOTDIR/.tmux.conf
