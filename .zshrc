@@ -23,7 +23,11 @@ ZSH_THEME="spaceship"
 
 
 ######### PLUGINS ###########
-plugins=(git kubectl minikube docker zsh-autosuggestions)
+plugins=(git
+        kubectl 
+        minikube 
+        docker 
+        zsh-autosuggestions)
 #virtualenv
 
 
