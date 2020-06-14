@@ -59,8 +59,10 @@ if [[ -n $(git status -s) ]]; then
 #	fi
         git push
 	if [[ $? -eq 0 ]]; then
-            ntfy send "Success: Dotfiles Backup"
+            /usr/local/bin/ntfy send "Success: Dotfiles Backup"
+            echo "Success: Dotfiles Backup" >> $LOGFILE
         else
-            ntfy send "FAILED: Dotfiles Backup"
+            /usr/local/bin/ntfy send "FAILED: Dotfiles Backup"
+            echo "FAILED: Dotfiles Backup" >> $LOGFILE
         fi 
 fi
