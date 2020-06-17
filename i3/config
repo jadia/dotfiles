@@ -117,6 +117,16 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+# Next workspace
+bindsym $mod+Tab workspace next
+### --whole-window --border is required to make it work with mouse
+bindsym --whole-window --border $mod+button5 workspace next 
+
+# Previous workspace
+bindsym $mod+Shift+Tab workspace prev
+### --whole-window --border is required to make it work with mouse
+bindsym --whole-window --border $mod+button4 workspace prev
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -217,13 +227,22 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle # mute mic
 
+# re binding: easy access
+bindsym $mod+F1 exec --no-startup-id pactl set-sink-mute 0 toggle
+bindsym $mod+F2 exec --no-startup-id pactl set-sink-volume 0 -5%
+bindsym $mod+F3 exec --no-startup-id pactl set-sink-volume 0 +5%
+bindsym $mod+F4 exec --no-startup-id pactl set-source-mute 1 toggle
+
+
 # Music controls
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause # toggle play-pause media
-
+bindsym $mod+F6 exec --no-startup-id playerctl play-pause
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym $mod+F12 exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym $mod+F11 exec xbacklight -dec 10 
 
 # Printscreen controls (Gnome)
 #bindsym Print exec gnome-screenshot
