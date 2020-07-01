@@ -11,13 +11,13 @@ docker-restore() { unset DOCKER_TLS_VERIFY; unset DOCKER_HOST; unset DOCKER_CERT
 
 #zprof
 ## Stole from arush-sal
- if [ "$TMUX" = "" ]; then
- 	 if [[ -n $(pgrep tmux) ]]; then	
- 		 if tmux ls|grep -q -e "0: ."; then tmux attach-session -t 0; else tmux new-session -s 0; fi
-     else 
-		 tmux new-session -s 0
-	 fi
- fi
+# if [ "$TMUX" = "" ]; then
+# 	 if [[ -n $(pgrep tmux) ]]; then	
+# 		 if tmux ls|grep -q -e "0: ."; then tmux attach-session -t 0; else tmux new-session -s 0; fi
+#     else 
+#		 tmux new-session -s 0
+#	 fi
+# fi
 
 
 # function Extract for common file formats
