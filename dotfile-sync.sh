@@ -36,6 +36,7 @@ mkdir -p $DOTDIR/.oh-my-zsh/custom
 checkdiff ~/.zshrc $DOTDIR/.zshrc
 checkdiff ~/.oh-my-zsh/custom/func.zsh $DOTDIR/.oh-my-zsh/custom/func.zsh
 checkdiff ~/.oh-my-zsh/custom/env.zsh $DOTDIR/.oh-my-zsh/custom/env.zsh
+checkdiff ~/.oh-my-zsh/custom/alias.zsh $DOTDIR/.oh-my-zsh/custom/alias.zsh
 
 # Sync .tmux
 mkdir -p $DOTDIR/.tmux
@@ -49,8 +50,6 @@ checkdiff ~/.vimrc $DOTDIR/.vimrc
 mkdir -p $DOTDIR/i3
 checkdiff ~/.config/i3/config $DOTDIR/i3/config
 checkdiff ~/.config/i3/status.conf $DOTDIR/i3/status.conf
-# Sync .aliases
-checkdiff ~/.aliases $DOTDIR/.aliases
 
 
 cd $DOTDIR;
