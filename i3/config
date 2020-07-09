@@ -139,6 +139,10 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+# Move workspace between outputs
+bindsym $mod+Ctrl+Right move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
+
 # Fix one 
 #assign [class="Firefox"] $ws2
 #assign [class="Google-chrome"] $ws2
@@ -156,6 +160,10 @@ assign [class="Slack"] $ws8
 assign [class="TogglDesktop"] $ws10
 assign [class="Toggl Desktop"] $ws10
 for_window [class="Toggl Desktop"] floating enable
+
+#Multi Monitor Cycle-through
+#bindsym XF86Display exec --no-startup-id monitor-setup.sh
+bindsym $mod+p exec --no-startup-id monitor-setup.sh
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -210,13 +218,13 @@ bindsym $mod+Shift+g exec google-chrome --args --incognito
 # Blank screen
 #bindsym $mod+x exec i3lock -c 000000 
 # with wallpaper
-bindsym $mod+x exec i3lock -i /home/nitish/Pictures/buzz-andersen-E4944K_4SvI-unsplash_1920x1271.png
-#bindsym $mod+x exec i3lock -i /home/nitish/feh-bg/debian_metal_png.png
+bindsym $mod+x exec i3lock -t -i /home/nitish/Pictures/buzz-andersen-E4944K_4SvI-unsplash_1920x1271.png
+#bindsym $mod+x exec i3lock -t -i /home/nitish/feh-bg/debian_metal_png.png
 
 # Background
-#exec --no-startup-id feh --bg-scale /home/nitish/feh-bg/naruto-face.jpg
-#exec --no-startup-id feh --bg-scale /home/nitish/feh-bg/think_correctly_debian.jpg
-exec --no-startup-id feh --bg-scale /home/nitish/Pictures/john-towner-JgOeRuGD_Y4-unsplash-compressed.jpg
+#exec --no-startup-id feh --bg-scale /home/nitish/Pictures/feh-bg/naruto-face.jpg
+#exec --no-startup-id feh --bg-scale /home/nitish/Pictures/feh-bg/think_correctly_debian.jpg
+exec --no-startup-id feh --bg-scale /home/nitish/Pictures/red-hills.jpg
 
 #Battery notification
 exec --no-startup-id i3-battery-popup -N -L 50

@@ -23,6 +23,12 @@ checkdiff() {
 	fi
 }
 
+## Sync cronjobs
+$(crontab -l) > /tmp/crontab
+checkdiff /tmp/crontab $DOTDIR/crontab
+
+
+
 ##Files
 
 # Sync .zshrc
@@ -33,9 +39,10 @@ checkdiff ~/.oh-my-zsh/custom/env.zsh $DOTDIR/.oh-my-zsh/custom/env.zsh
 
 # Sync .tmux
 mkdir -p $DOTDIR/.tmux
-checkdiff ~/.tmux.conf $DOTDIR/.tmux.conf
-checkdiff ~/.tmux.conf.local $DOTDIR/.tmux.conf.local 
-checkdiff ~/.tmux/.tmux.conf $DOTDIR/.tmux/.tmux.conf
+checkdiff ~/.tmux/.tmux.conf $DOTDIR/.tmux.conf
+checkdiff ~/.tmux/.tmux.conf.local $DOTDIR/.tmux.conf.local 
+#checkdiff ~/.tmux/.tmux.conf $DOTDIR/.tmux/.tmux.conf
+
 # Sync .vimrc
 checkdiff ~/.vimrc $DOTDIR/.vimrc
 # Sync i3
@@ -44,6 +51,7 @@ checkdiff ~/.config/i3/config $DOTDIR/i3/config
 checkdiff ~/.config/i3/status.conf $DOTDIR/i3/status.conf
 # Sync .aliases
 checkdiff ~/.aliases $DOTDIR/.aliases
+
 
 cd $DOTDIR;
 if [[ -n $(git status -s) ]]; then
