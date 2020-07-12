@@ -24,7 +24,7 @@ checkdiff() {
 }
 
 ## Sync cronjobs
-$(crontab -l -u nitish) > /tmp/crontab
+crontab -l -u nitish > /tmp/crontab
 checkdiff /tmp/crontab $DOTDIR/crontab
 
 
