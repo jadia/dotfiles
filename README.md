@@ -52,7 +52,7 @@ Logout for changes to appear.
 [Source](https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/)
 
 ## Make brightness control work again
-
+(DOES NOT SEEM TO WORK WITH UBUNTU)   
 ```vim
 sudo find /sys/ -type f -iname '*brightness*'
 ```
@@ -112,3 +112,11 @@ vim ~/.config/i3/config
 ```vim
 assign [class="Google-chrome"] $ws2
 ```
+
+# Setting up my machine on Ubuntu 20.04 along with i3wm
+
+## Lid Management
+
+Uncomment `HandleLidSwitch=suspend` in `/etc/systemd/logind.conf`  
+
+[Source](https://forum.manjaro.org/t/i3-suspend-on-lid-close/11305)
