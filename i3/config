@@ -271,10 +271,10 @@ bindsym Shift+Print exec spectacle -brn -o ~/Pictures/Screenshots/$(date +%F-%H-
 # Custom keybinds
 
 # UoH network connect bind
-bindsym F7 exec --no-startup-id /home/nitish/cron/authenticate.sh
+#bindsym F7 exec --no-startup-id /home/nitish/cron/authenticate.sh
 
 
 #Default workspace settings
 exec i3-msg 'workspace $ws1; exec /usr/bin/i3-sensible-terminal;'
 #exec i3-msg 'workspace $ws2; exec /usr/bin/google-chrome;'
-#exec i3-msg 'workspace $ws8; exec /usr/bin/slack'
+exec i3-msg 'workspace $ws8; exec /snap/bin/slack'

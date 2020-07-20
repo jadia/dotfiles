@@ -43,6 +43,7 @@ alias kd='kubectl describe'
 alias kg='kubectl get'
 alias ctx='kubectx'
 alias cns='kubens'
+alias k9s='docker run --rm -it -v ~/.kube/config:/root/.kube/config -v ~/.minikube/:/home/nitish/.minikube quay.io/derailed/k9s'
 
 # Work
 alias laptop='ssh jadia@192.168.1.200'
