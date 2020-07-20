@@ -5,6 +5,9 @@
 alias exiftool='docker run --rm -v $(pwd):/tmp jadia/exiftool'
 alias docker_clear='docker rm $(docker ps -aq)'
 alias vnstati='docker run --rm --name vnstat-dashboard -p 8008:80 -v /usr/bin/vnstat:/usr/bin/vnstat -v /var/lib/vnstat:/var/lib/vnstat -d amarston/vnstat-dashboard:latest && echo "Check port 8008" && echo "Run this to stop server: docker stop vnstat-dashboard"'
+alias hugo='docker run --rm -it -v $PWD:/src -u hugo jadia/hugo-builder hugo'
+alias hugo-server='docker run --rm -it -v $PWD:/src -p 1313:1313 -u hugo jadia/hugo-builder hugo server --bind 0.0.0.0 -D'
+
 
 # General 
 
@@ -25,6 +28,7 @@ alias ndone='ntfy done'
 alias sl='sl -ela' # Train
 alias ram="free -h | awk ' NR==2 {print \$3}'" # how much ram is being used
 alias speedtest="speedtest --server-id=3663 -u MB/s"
+alias mknitish="sudo chown -R nitish:nitish"
 
 # Git
 alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
