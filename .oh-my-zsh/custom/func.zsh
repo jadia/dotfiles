@@ -1,8 +1,8 @@
-startvm() { if  virsh start $1; then; sleep 8s; fi; ssh th3nyx@$1; }
+# startvm() { if  virsh start $1; then; sleep 8s; fi; ssh th3nyx@$1; }
 
-penmount() { sudo mount -o rw,user,exec,umask=000 /dev/$1 /mnt/tmp; }
+# penmount() { sudo mount -o rw,user,exec,umask=000 /dev/$1 /mnt/tmp; }
 
-hddoff() { sudo udisksctl power-off -b /dev/$1; }
+# hddoff() { sudo udisksctl power-off -b /dev/$1; }
 
 localServer() { if [[ $1 == 'start' ]]; then; docker run --rm --name local-nginx -v ~/Documents/localShare:/usr/share/nginx/html:ro -v ~/Documents/localShare/default.conf:/etc/nginx/conf.d/default.conf -p 80:80 -d nginx; fi; if [[ $1 == 'stop' ]]; then; docker stop local-nginx; fi; }
 #alias config='/usr/bin/git --git-dir=/home/nitish/.cfg/ --work-tree=/home/nitish'
@@ -20,7 +20,7 @@ docker-restore() { unset DOCKER_TLS_VERIFY; unset DOCKER_HOST; unset DOCKER_CERT
 # fi
 
 
-# function Extract for common file formats
+##### function Extract for common file formats
 # Source: https://github.com/xvoland/Extract/blob/master/extract.sh
 
 function extract {
@@ -57,4 +57,20 @@ function extract {
       fi
     done
 fi
+}
+
+transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
+tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; echo ""; }
+
+
+yd () {
+  ytdl_args="-o %(title)s.%(ext)s"
+  if [[ $1 == *"list"* ]]; then
+    ytdl_args="-o %(playlist_index)2d-%(title)s.%(ext)s"
+  fi
+  youtube-dl --ignore-errors -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' --external-downloader aria2c --external-downloader-args -x10 $(echo $ytdl_args) $1 && notify-send -t 3000 "youtube-dl: Done" || notify-send -t 3000 "youtube-dl: Error"
+}
+
+yad () {
+  youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --ignore-errors -o "%(title)s.%(ext)s" --external-downloader aria2c --external-downloader-args -x10 $1 && notify-send -t 3000 "youtube-dl: Done" || notify-send -t 3000 "youtube-dl: Error"
 }

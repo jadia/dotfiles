@@ -19,24 +19,30 @@ alias work='vim /home/nitish/work.md'
 alias cal='cal -3'
 alias gping='ping -c 3 google.com'
 #alias asdf='/home/nitish/cron/authenticate.sh' # login to UoH network
-# alias untar='tar -xvf'
-alias listvm='sudo virsh list --all'
+#alias untar='tar -xvf'
+#alias listvm='sudo virsh list --all' # List all KVM machines
 alias rsync='rsync -avzhP'
 alias downit='aria2c -x16' # download with 16 parallel connections
-alias til='cd /home/nitish/til'
+#alias til='cd /home/nitish/til' # Delete later
 alias ndone='ntfy done'
 alias sl='sl -ela' # Train
 alias ram="free -h | awk ' NR==2 {print \$3}'" # how much ram is being used
 alias speedtest="speedtest --server-id=3663 -u MB/s"
 alias mknitish="sudo chown -R nitish:nitish"
+alias img="feh -FZrD3"
+alias path="echo $PATH | tr -s ':' '\n'" # Pretty print the path
+alias vpn='sudo openvpn ~/cron/vpn/nitish.ovpn'
+alias rescan='nmcli dev wifi rescan'
 
 # Git
 alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 
-#Local VM
-alias atlantis='ssh th3nyx@192.168.122.99'
-alias virsh='sudo virsh'
-
+#Vagrant
+alias up="vagrant up"
+alias down="vagrant halt"
+alias des="vagrant destroy"
+alias vssh="vagrant ssh"
+alias re="vagrant reload"
 
 # Kubernetes
 alias kd='kubectl describe'
@@ -46,9 +52,8 @@ alias cns='kubens'
 alias k9s='docker run --rm -it -v ~/.kube/config:/root/.kube/config -v ~/.minikube/:/home/nitish/.minikube quay.io/derailed/k9s'
 
 # Work
-alias laptop='ssh jadia@192.168.1.200'
+#alias laptop='ssh jadia@192.168.1.200'
 
 # Long Tasks
-alias scisHomePush='mkdocs build && gaa && gcmsg "update" && git push && rsync -avzhP site/*  18mcmt13@10.5.0.90:/users/mtech/18mcmt13/public_html/'
-alias vpn='sudo openvpn ~/VPN/nitish.ovpn'
+#alias scisHomePush='mkdocs build && gaa && gcmsg "update" && git push && rsync -avzhP site/*  18mcmt13@10.5.0.90:/users/mtech/18mcmt13/public_html/'
 #alias nmtui='nmcli dev wifi rescan && nmtui'
