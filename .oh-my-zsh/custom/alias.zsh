@@ -40,7 +40,7 @@ alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
 #Vagrant
 alias up="vagrant up"
 alias down="vagrant halt"
-alias des="vagrant destroy"
+alias des="vagrant destroy -f"
 alias vssh="vagrant ssh"
 alias re="vagrant reload"
 

@@ -157,6 +157,7 @@ assign [class="weechat"] $ws8
 #assign [class="Riot"] $ws9
 #assign [class="TelegramDesktop"] $ws9
 assign [class="Slack"] $ws8
+assign [class="zoom"] $ws9
 assign [class="TogglDesktop"] $ws10
 assign [class="Toggl Desktop"] $ws10
 for_window [class="Toggl Desktop"] floating enable
