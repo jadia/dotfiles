@@ -262,12 +262,12 @@ bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightne
 bindsym $mod+F11 exec xbacklight -dec 10 
 
 # Printscreen controls (Gnome)
-#bindsym Print exec gnome-screenshot
-#bindsym Shift+Print exec gnome-screenshot -a
+bindsym Print exec gnome-screenshot -B -f ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png
+bindsym Shift+Print exec gnome-screenshot -a -B -f ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png --display=$DISPLAY
 
 # Printscreen controls (KDE)
-bindsym Print exec spectacle -bn -o ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png
-bindsym Shift+Print exec spectacle -brn -o ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png
+#bindsym Print exec spectacle -bn -o ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png
+#bindsym Shift+Print exec spectacle -brn -o ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png
 
 # Custom keybinds
 
