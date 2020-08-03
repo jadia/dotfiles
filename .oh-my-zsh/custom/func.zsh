@@ -63,14 +63,14 @@ transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho
 tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; echo ""; }
 
 
-yd () {
+yt () {
   ytdl_args="-o %(title)s.%(ext)s"
   if [[ $1 == *"list"* ]]; then
     ytdl_args="-o %(playlist_index)2d-%(title)s.%(ext)s"
   fi
-  youtube-dl --ignore-errors -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' --external-downloader aria2c --external-downloader-args -x10 $(echo $ytdl_args) $1 && notify-send -t 3000 "youtube-dl: Done" || notify-send -t 3000 "youtube-dl: Error"
+  youtube-dl --ignore-errors -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' --external-downloader aria2c --external-downloader-args -x10 $(echo $ytdl_args) $@ && notify-send -t 5000 "youtube-dl: Done" || notify-send -t 5000 -u "critical" "youtube-dl: Error"
 }
 
-yad () {
-  youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --ignore-errors -o "%(title)s.%(ext)s" --external-downloader aria2c --external-downloader-args -x10 $1 && notify-send -t 3000 "youtube-dl: Done" || notify-send -t 3000 "youtube-dl: Error"
+yta () {
+  youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --ignore-errors -o "%(title)s.%(ext)s" --external-downloader aria2c --external-downloader-args -x10 $@ && notify-send -t 5000 "youtube-dl: Done" || notify-send -t 5000 -u "critical" "youtube-dl: Error"
 }
