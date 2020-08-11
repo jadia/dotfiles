@@ -7,6 +7,8 @@ alias docker_clear='docker rm $(docker ps -aq)'
 alias vnstati='docker run --rm --name vnstat-dashboard -p 8008:80 -v /usr/bin/vnstat:/usr/bin/vnstat -v /var/lib/vnstat:/var/lib/vnstat -d amarston/vnstat-dashboard:latest && echo "Check port 8008" && echo "Run this to stop server: docker stop vnstat-dashboard"'
 alias hugo='docker run --rm -it -v $PWD:/src -u hugo jadia/hugo-builder hugo'
 alias hugo-server='docker run --rm -it -v $PWD:/src -p 1313:1313 -u hugo jadia/hugo-builder hugo server --bind 0.0.0.0 -D'
+alias jekyll='docker run --rm -ti -v $(pwd):/work -p 4000:4000 jadia/bundler bundle exec jekyll'
+alias jekyll-server='docker run --rm -ti -v $(pwd):/work -p 4000:4000 jadia/bundler bundle exec jekyll serve --host 0.0.0.0'
 
 
 # General 
