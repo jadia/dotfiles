@@ -35,6 +35,8 @@ alias img="feh -FZrD3"
 alias path="echo $PATH | tr -s ':' '\n'" # Pretty print the path
 alias vpn='sudo openvpn ~/cron/vpn/nitish.ovpn'
 alias rescan='nmcli dev wifi rescan'
+alias clipshow='clipcopy; clippaste | bat'
+
 
 # Git
 alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
