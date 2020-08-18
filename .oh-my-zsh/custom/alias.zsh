@@ -36,7 +36,7 @@ alias path="echo $PATH | tr -s ':' '\n'" # Pretty print the path
 alias vpn='sudo openvpn ~/cron/vpn/nitish.ovpn'
 alias rescan='nmcli dev wifi rescan'
 alias clipshow='clipcopy; clippaste | bat'
-alias mkexe='chmod +x'
+alias mkexec='sudo chmod +x'
 
 
 # Git
