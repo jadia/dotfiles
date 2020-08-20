@@ -35,7 +35,7 @@ alias img="feh -FZrD3"
 alias path="echo $PATH | tr -s ':' '\n'" # Pretty print the path
 alias vpn='sudo openvpn ~/cron/vpn/nitish.ovpn'
 alias rescan='nmcli dev wifi rescan'
-alias clipshow='clipcopy; clippaste | bat'
+alias clipshow='clipcopy; clippaste | bat' # Copy content to clipboard + print using bat
 alias mkexec='sudo chmod +x'
 
 
@@ -54,6 +54,9 @@ alias kd='kubectl describe'
 alias kg='kubectl get'
 alias ctx='kubectx'
 alias cns='kubens'
+alias minikube-update=' sudo curl -Lo /tmp/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+						&& sudo mv /tmp/minikube /usr/local/bin/minikube \
+						&& sudo chmod +x /usr/local/bin/minikube'
 #alias k9s='docker run --rm -it -v ~/.kube/config:/root/.kube/config -v ~/.minikube/:/home/nitish/.minikube quay.io/derailed/k9s'
 
 # Work
