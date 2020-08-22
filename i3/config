@@ -212,6 +212,7 @@ bar {
 
 bindsym $mod+n exec nautilus 
 bindsym $mod+g exec google-chrome
+bindsym $mod+b exec brave-browser
 bindsym $mod+Shift+g exec google-chrome --args --incognito
 
 # Bluetooth service

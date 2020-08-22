@@ -35,7 +35,7 @@ alias img="feh -FZrD3"
 alias path="echo $PATH | tr -s ':' '\n'" # Pretty print the path
 alias vpn='sudo openvpn ~/cron/vpn/nitish.ovpn'
 alias rescan='nmcli dev wifi rescan'
-alias clipshow='clipcopy; clippaste | bat' # Copy content to clipboard + print using bat
+alias copyshow='clipcopy; clippaste | bat' # Copy content to clipboard + print using bat
 alias mkexec='sudo chmod +x'
 
 
