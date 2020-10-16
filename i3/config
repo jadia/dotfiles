@@ -282,4 +282,4 @@ bindsym Shift+Print exec gnome-screenshot -a -B -f ~/Pictures/Screenshots/$(date
 #Default workspace settings
 exec i3-msg 'workspace $ws1; exec /usr/bin/i3-sensible-terminal;'
 #exec i3-msg 'workspace $ws2; exec /usr/bin/google-chrome;'
-exec i3-msg 'workspace $ws8; exec /snap/bin/slack'
+#exec i3-msg 'workspace $ws8; exec /snap/bin/slack'
