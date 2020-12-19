@@ -97,6 +97,14 @@ sudo make install
 [Source](https://www.reddit.com/r/i3wm/comments/ahwb57/pulseaudio_exceeding_100_volume_with_keybindings/eeit7rw/?utm_source=reddit&utm_medium=web2x&context=3)
 
 
+### Play/Pause button support
+
+```bash
+cd /tmp/nitish && \
+wget https://github.com/altdesktop/playerctl/releases/download/v2.3.1/playerctl-2.3.1_amd64.deb && \
+sudo apt install -f ./playerctl-2.3.1_amd64.deb
+```
+
 ### Volume goes beyond 100% issue
 
 ```bash
