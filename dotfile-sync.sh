@@ -27,9 +27,9 @@ checkdiff() {
 crontab -l -u nitish > /tmp/crontab
 checkdiff /tmp/crontab $DOTDIR/crontab
 
-
-
 ##Files
+checkdiff ~/cron/fan_status.py $DOTDIR/fan_status.py
+checkdiff ~/cron/get_fan_speed.py $DOTDIR/get_fan_speed.py
 
 # Sync .zshrc
 mkdir -p $DOTDIR/.oh-my-zsh/custom
