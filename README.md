@@ -116,6 +116,13 @@ current=$(pacmd dump-volumes | awk 'NR==1{print $8}' | sed 's/\%//')
 [Source](https://www.reddit.com/r/i3wm/comments/ahwb57/pulseaudio_exceeding_100_volume_with_keybindings/eeizcov/?utm_source=reddit&utm_medium=web2x&context=3)
 
 Or try to use pulseaudio-ctl instead which by default limits the volume to 100%.
+
+## Lid Management
+
+Uncomment `HandleLidSwitch=suspend` in `/etc/systemd/logind.conf`  
+
+[Source](https://forum.manjaro.org/t/i3-suspend-on-lid-close/11305)
+
 # Application Installation
 
 ## Samba server setup

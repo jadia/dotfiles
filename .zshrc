@@ -25,12 +25,12 @@ ZSH_THEME="spaceship"
 
 ######### PLUGINS ###########
 plugins=(git
-        kubectl 
-        minikube 
+        virtualenv
         docker 
         zsh-autosuggestions
     )
-#virtualenv
+        # kubectl 
+        # minikube 
 
 
 # Set list of themes to pick from when loading at random
@@ -137,6 +137,7 @@ export GPG_TTY=$(tty)
 autoload -U compinit && compinit
 setopt HIST_IGNORE_SPACE
 
-if [ -f ~/.pass.sh ]; then
-    source ~/.pass.sh
-fi
+# Initialize variables containing passwords and keys
+# if [ -f ~/.pass.sh ]; then
+#     source ~/.pass.sh
+# fi
