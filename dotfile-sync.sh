@@ -28,8 +28,11 @@ crontab -l -u nitish > /tmp/crontab
 checkdiff /tmp/crontab $DOTDIR/crontab
 
 ##Files
-checkdiff ~/cron/fan_status.py $DOTDIR/fan_status.py
-checkdiff ~/cron/get_fan_speed.py $DOTDIR/get_fan_speed.py
+checkdiff ~/cron/fan_status.py $DOTDIR/scripts/fan_status.py
+checkdiff ~/cron/get_fan_speed.py $DOTDIR/scripts/get_fan_speed.py
+checkdiff ~/cron/i3-battery-popup.sh $DOTDIR/scripts/i3-battery-popup.sh
+checkdiff ~/cron/monitor-setup.sh $DOTDIR/scripts/monitor-setup.sh
+
 
 # Sync .zshrc
 mkdir -p $DOTDIR/.oh-my-zsh/custom
@@ -64,7 +67,7 @@ if [[ -n $(git status -s) ]]; then
 #	if [[ $? -ne 0 ]]; then
 #		git commit -s -a -m "$(curl -s whatthecommit.com/index.txt)"
 #	fi
-        git push
+        git push origin 5402
 	if [[ $? -eq 0 ]]; then
             /usr/local/bin/ntfy send "Success: Dotfiles Backup"
             echo "Success: Dotfiles Backup" >> $LOGFILE
