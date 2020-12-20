@@ -3,7 +3,7 @@
 # Modified: Nitish Jadia
 
 DOTDIR="$HOME/dotfiles"
-LOGFILE="$HOME/dotsync.log"
+LOGFILE="$HOME/dotfiles/dotsync.log"
 DASHLINE='-----------------------------'
 echo -e "\n""$DASHLINE$(date)$DASHLINE""\n" >> $LOGFILE
 checkdiff() {
