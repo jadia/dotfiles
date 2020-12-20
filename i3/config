@@ -236,7 +236,7 @@ bindsym $mod+x exec i3lock -t -i /home/nitish/Pictures/lock-screen.png
 exec --no-startup-id feh --bg-scale /home/nitish/Pictures/wallpaper.jpg
 
 #Battery notification
-exec --no-startup-id i3-battery-popup -N -L 30
+exec --no-startup-id ~/cron/i3-battery-popup.sh -N -L 30
 
 # Pulse Audio controls
 # The name of sink is added instead of sink number '0' because the value keep changing

@@ -4,6 +4,8 @@
 
 DOTDIR="$HOME/dotfiles"
 LOGFILE="$HOME/dotfiles/dotsync.log"
+NTFY_BIN='/home/nitish/.local/bin/ntfy'
+
 DASHLINE='-----------------------------'
 echo -e "\n""$DASHLINE$(date)$DASHLINE""\n" >> $LOGFILE
 checkdiff() {
@@ -69,10 +71,10 @@ if [[ -n $(git status -s) ]]; then
 #	fi
     git push origin 5402
 	if [[ $? -eq 0 ]]; then
-            ntfy send "Success: Dotfiles Backup"
+            $NTFY_BIN send "Success: Dotfiles Backup"
             echo "Success: Dotfiles Backup" >> $LOGFILE
         else
-            ntfy send "FAILED: Dotfiles Backup"
+            $NTFY_BIN send "FAILED: Dotfiles Backup"
             echo "FAILED: Dotfiles Backup" >> $LOGFILE
     fi 
 fi
