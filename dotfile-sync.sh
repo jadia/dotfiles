@@ -43,8 +43,8 @@ checkdiff ~/.oh-my-zsh/custom/alias.zsh $DOTDIR/.oh-my-zsh/custom/alias.zsh
 
 # Sync .tmux
 mkdir -p $DOTDIR/.tmux
-checkdiff ~/.tmux/.tmux.conf $DOTDIR/.tmux.conf
-checkdiff ~/.tmux/.tmux.conf.local $DOTDIR/.tmux.conf.local 
+checkdiff ~/.tmux/.tmux.conf $DOTDIR/.tmux/.tmux.conf
+checkdiff ~/.tmux/.tmux.conf.local $DOTDIR/.tmux/.tmux.conf.local 
 #checkdiff ~/.tmux/.tmux.conf $DOTDIR/.tmux/.tmux.conf
 
 # Sync .vimrc
@@ -61,18 +61,18 @@ if [[ -n $(git status -s) ]]; then
 	echo $DASHLINE
 	git add .
 	#git yolo
-        # Wait till machine is online
-        until ping -c 1 8.8.8.8 &> /dev/null; do sleep 3; done
+    # Wait till machine is online
+	until ping -c 1 8.8.8.8 &> /dev/null; do sleep 3; done
 	git commit -s -a -m "$(curl -s whatthecommit.com/index.txt)"
 #	if [[ $? -ne 0 ]]; then
 #		git commit -s -a -m "$(curl -s whatthecommit.com/index.txt)"
 #	fi
-        git push origin 5402
+    git push origin 5402
 	if [[ $? -eq 0 ]]; then
-            /usr/local/bin/ntfy send "Success: Dotfiles Backup"
+            ntfy send "Success: Dotfiles Backup"
             echo "Success: Dotfiles Backup" >> $LOGFILE
         else
-            /usr/local/bin/ntfy send "FAILED: Dotfiles Backup"
+            ntfy send "FAILED: Dotfiles Backup"
             echo "FAILED: Dotfiles Backup" >> $LOGFILE
-        fi 
+    fi 
 fi

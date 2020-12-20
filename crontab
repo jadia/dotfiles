@@ -22,5 +22,10 @@
 # 
 # m h  dom mon dow   command
 
+# DISPLAY for notify-send support
+DISPLAY=:0
 @reboot bash -c "mkdir -p /tmp/nitish/"
+@reboot bash -c "/home/nitish/cron/fan_status.py"
 @reboot bash -c "/home/nitish/dotfiles/dotfile-sync.sh"
+#*/1 * * * * bash -c "XDG_RUNTIME_DIR=/run/user/$(id -u); python3 /home/nitish/cron/test.py"
+#*/1 * * * * bash -c "python3 /home/nitish/cron/test.py"
