@@ -85,6 +85,12 @@ chmod +x rip && \
 mv rip $LOCAL_BIN
 
 
+## Veracrypt ##
+
+cd /tmp/nitish && \
+wget "https://launchpad.net/veracrypt/trunk/1.24-update7/+download/veracrypt-1.24-Update7-Ubuntu-20.04-amd64.deb" && \
+sudo apt install -f ./veracrypt-1.24-Update7-Ubuntu-20.04-amd64.deb
+
 #### Development ####
 
 pip3 install virtualenv
@@ -117,3 +123,7 @@ sudo apt install -y blueman
 #### Copy Dotfiles ####
 
 mkdir -p ~/Pictures/Screenshots
+
+# OhMyZsh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh) --unattended"
+
