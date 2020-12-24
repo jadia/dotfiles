@@ -128,9 +128,9 @@ Uncomment `HandleLidSwitch=suspend` in `/etc/systemd/logind.conf`
 ## Samba server setup
 
 ```bash
-sudo apt install -y nautilus nautilus-share samba samba-client
-sudo usermod -a -G sambashare $USER
-sudo systemctl enable smbd
+sudo apt install -y nautilus nautilus-share samba samba-client && \
+sudo usermod -a -G sambashare $USER && \
+sudo systemctl enable smbd && \
 sudo systemctl start smbd
 ```
 
