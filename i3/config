@@ -233,7 +233,7 @@ exec --no-startup-id nm-applet
 bindsym $mod+x exec i3lock -t -i /home/nitish/Pictures/lock-screen.png
 
 # Background
-exec --no-startup-id feh --bg-scale /home/nitish/Pictures/wallpaper.jpg
+exec_always --no-startup-id feh --bg-scale /home/nitish/Pictures/wallpaper.jpg
 
 #Battery notification
 exec --no-startup-id ~/cron/i3-battery-popup.sh -N -L 30
@@ -261,6 +261,7 @@ bindsym $mod+F4 exec --no-startup-id pactl set-source-mute 1 toggle
 
 
 # Music controls
+## Requires playerctl to be installed
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause # toggle play-pause media
 bindsym $mod+F6 exec --no-startup-id playerctl play-pause
 
@@ -274,10 +275,10 @@ bindsym $mod+F6 exec --no-startup-id playerctl play-pause
 
 ### When xbacklight is not working then use below
 
-bindsym XF86MonBrightnessUp exec light -A 10 # increase screen brightness
-bindsym $mod+F12 exec light -A 10
-bindsym XF86MonBrightnessDown exec light -U 10 # decrease screen brightness
-bindsym $mod+F11 exec light -U 10 
+bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
+bindsym $mod+F12 exec light -A 5
+bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
+bindsym $mod+F11 exec light -U 5
 
 # Printscreen controls (Gnome)
 bindsym Print exec gnome-screenshot -B -f ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png
