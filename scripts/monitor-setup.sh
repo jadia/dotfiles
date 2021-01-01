@@ -5,9 +5,11 @@ declare -a modes=( extended hdmi-only lcd-only mirrored )
 
 MONITOR_SETUP="/tmp/monitor_setup"
 I3_RESTART="/usr/bin/i3-msg restart"
-WALLPAPER_RESET="feh --bg-scale $HOME/Pictures/red-hills.jpg"
-LAPTOP_DISPLAY="eDP-1-1"
-SECOND_DISPLAY="HDMI-0"
+WALLPAPER_RESET="feh --bg-scale $HOME/Pictures/wallpaper.jpg"
+#LAPTOP_DISPLAY="eDP-1-1" #7567
+LAPTOP_DISPLAY="eDP-1" #5402
+#SECOND_DISPLAY="HDMI-0" # 7567
+SECOND_DISPLAY="HDMI-1" #5402
 DISPLAY_RESET="xrandr --output $LAPTOP_DISPLAY --auto --primary --dpi 96 --output $SECOND_DISPLAY --off"
 
 function get_index {
@@ -28,6 +30,7 @@ function switch_setup {
 	case "$@" in
 		"extended" )
 			xrandr --auto && xrandr --output $SECOND_DISPLAY --primary --left-of $LAPTOP_DISPLAY
+			# xrandr --auto && xrandr --output $SECOND_DISPLAY --primary --above $LAPTOP_DISPLAY
 			echo "extended" > $MONITOR_SETUP
 			$I3_RESTART
 			$WALLPAPER_RESET

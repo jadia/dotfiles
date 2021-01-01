@@ -25,12 +25,12 @@ ZSH_THEME="spaceship"
 
 ######### PLUGINS ###########
 plugins=(git
-        kubectl 
-        minikube 
+        virtualenv
         docker 
         zsh-autosuggestions
     )
-#virtualenv
+        # kubectl 
+        # minikube 
 
 
 # Set list of themes to pick from when loading at random
@@ -92,8 +92,8 @@ source $ZSH/oh-my-zsh.sh
 SPACESHIP_USER_SHOW="always"
 SPACESHIP_CHAR_SYMBOL=" >"
 SPACESHIP_CHAR_SUFFIX=" "
-#SPACESHIP_BATTERY_THRESHOLD="40"
-SPACESHIP_BATTERY_THRESHOLD="0"
+SPACESHIP_BATTERY_THRESHOLD="30"
+#SPACESHIP_BATTERY_THRESHOLD="0"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -137,6 +137,7 @@ export GPG_TTY=$(tty)
 autoload -U compinit && compinit
 setopt HIST_IGNORE_SPACE
 
-if [ -f ~/.pass.sh ]; then
-    source ~/.pass.sh
-fi
+# Initialize variables containing passwords and keys
+# if [ -f ~/.pass.sh ]; then
+#     source ~/.pass.sh
+# fi

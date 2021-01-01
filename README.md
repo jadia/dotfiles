@@ -1,30 +1,12 @@
 # Dotfiles
 
-
-## Samba server setup
-
-```bash
-sudo apt install -y nautilus nautilus-share samba samba-client
-sudo usermod -a -G sambashare $USER
-sudo systemctl enable smbd
-sudo systemctl start smbd
-```
-
-Then use Nautilus to *share* the folder.
-
-# i3 Configuration
-
-Configure i3 on my Debian machine.
+# Ubuntu 20.04 + i3wm
 
 ## Install i3
 
 ```bash
 sudo apt-get update && sudo apt-get install -y i3
 ```
-
-## Copy the config file
-
-Copy the config file to `~/.config/i3/`
 
 ## Enable touchpad gestures
 
@@ -51,8 +33,17 @@ EndSection
 Logout for changes to appear.
 [Source](https://cravencode.com/post/essentials/enable-tap-to-click-in-i3wm/)
 
-## Make brightness control work again
-(DOES NOT SEEM TO WORK WITH UBUNTU)   
+
+## Screen tearing/flickering problem
+
+```bash
+sudo apt purge xserver-xorg-video-intel
+```
+
+No idea why this works but it does the job. But this also breaks backlight management.
+
+**But** if there is no tearing/flickering problem then do the following:
+
 ```vim
 sudo find /sys/ -type f -iname '*brightness*'
 ```
@@ -66,7 +57,8 @@ sudo ln -s /sys/devices/pci0000:00/0000:00:02.0/drm/card0/card0-LVDS-1/intel_bac
 **NOTE**: The above path for the device may vary from system to system.
 
 ```bash
-vim /etc/X11/xorg.conf.d/00-backlight.conf
+sudo mkdir -p /etc/X11/xorg.conf.d/ 
+sudo vim /etc/X11/xorg.conf.d/00-backlight.conf
 ```
 
 ```vim
@@ -79,15 +71,74 @@ vim /etc/X11/xorg.conf.d/00-backlight.conf
 
 [Source](https://askubuntu.com/questions/715306/xbacklight-no-outputs-have-backlight-property-no-sys-class-backlight-folder)
 
-## i3 Dolphin icons not showing
 
-Add the following line on your i3 config file
+### Fix backlight function
 
-```vim
-bindsym $mod+n exec bash -c "XDG_CURRENT_DESKTOP=KDE && dolphin"
+If you had screen tearing and flickering issue and removed the intel drivers then use the below method to fix the backlight function.
+
+```bash
+wget https://github.com/haikarainen/light/releases/download/v1.2/light_1.2_amd64.deb
+sudo apt install -f ./light_1.2_amd64.deb
+sudo chgrp video /sys/class/backlight/*/brightness
+sudo chmod 664 /sys/class/backlight/*/brightness
 ```
 
-Run using `$mod+n`
+## Volume control
+
+`pactl` must work out of the box, but IF in case audio stuff breaks try `pulseaudio-ctl`
+
+```bash
+sudo apt install -y make
+git clone https://github.com/graysky2/pulseaudio-ctl.git
+cd pulseaudio-ctl
+sudo make install
+```
+
+[Source](https://www.reddit.com/r/i3wm/comments/ahwb57/pulseaudio_exceeding_100_volume_with_keybindings/eeit7rw/?utm_source=reddit&utm_medium=web2x&context=3)
+
+
+### Play/Pause button support
+
+```bash
+cd /tmp/nitish && \
+wget https://github.com/altdesktop/playerctl/releases/download/v2.3.1/playerctl-2.3.1_amd64.deb && \
+sudo apt install -f ./playerctl-2.3.1_amd64.deb
+```
+
+### Volume goes beyond 100% issue
+
+```bash
+#!/bin/sh
+current=$(pacmd dump-volumes | awk 'NR==1{print $8}' | sed 's/\%//')
+[ $current -lt 100 ] && pactl set-sink-volume 0 +1%
+```
+
+[Source](https://www.reddit.com/r/i3wm/comments/ahwb57/pulseaudio_exceeding_100_volume_with_keybindings/eeizcov/?utm_source=reddit&utm_medium=web2x&context=3)
+
+Or try to use pulseaudio-ctl instead which by default limits the volume to 100%.
+
+## Lid Management
+
+Uncomment `HandleLidSwitch=suspend` in `/etc/systemd/logind.conf`  
+
+[Source](https://forum.manjaro.org/t/i3-suspend-on-lid-close/11305)
+
+# Application Installation
+
+## Samba server setup
+
+```bash
+sudo apt install -y nautilus nautilus-share samba samba-client && \
+sudo usermod -a -G sambashare $USER && \
+sudo systemctl enable smbd && \
+sudo systemctl start smbd
+```
+
+Then use Nautilus to *share* the folder.
+
+
+# How-to
+
 
 ## Assign workspace to an application
 
@@ -113,10 +164,8 @@ vim ~/.config/i3/config
 assign [class="Google-chrome"] $ws2
 ```
 
-# Setting up my machine on Ubuntu 20.04 along with i3wm
+## Find the value of the key used
 
-## Lid Management
-
-Uncomment `HandleLidSwitch=suspend` in `/etc/systemd/logind.conf`  
-
-[Source](https://forum.manjaro.org/t/i3-suspend-on-lid-close/11305)
+```bash
+xev -event keyboard  | egrep -o 'keycode.*\)'
+```
