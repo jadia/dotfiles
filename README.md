@@ -117,6 +117,17 @@ current=$(pacmd dump-volumes | awk 'NR==1{print $8}' | sed 's/\%//')
 
 Or try to use pulseaudio-ctl instead which by default limits the volume to 100%.
 
+
+### Suddenly sound stops from speaker/headphones
+
+```bash
+sudo apt install pavucontrol -y
+pavucontrol
+```
+and select the correct sound card.
+This could be due to HDMI attached, where the laptop sends the audio output to the HDMI sink (or card, whatever).
+
+
 ## Lid Management
 
 Uncomment `HandleLidSwitch=suspend` in `/etc/systemd/logind.conf`  
