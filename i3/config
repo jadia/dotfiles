@@ -234,7 +234,7 @@ bindsym $mod+x exec i3lock -t -i /home/nitish/Pictures/lock-screen.png
 
 # Background
 #exec_always --no-startup-id feh --bg-scale /home/nitish/Pictures/wallpaper.jpg
-exec_always --no-startup-id feh --randomize --bg-scale /home/nitish/dotfiles/wallpapers/*
+exec --no-startup-id feh --randomize --bg-scale /home/nitish/dotfiles/wallpapers/*
 
 
 #Battery notification
