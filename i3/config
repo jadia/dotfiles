@@ -167,6 +167,8 @@ for_window [class="Toggl Desktop"] floating enable
 #Multi Monitor Cycle-through
 bindsym XF86Display exec --no-startup-id ~/cron/monitor-setup.sh
 bindsym $mod+p exec --no-startup-id ~/cron/monitor-setup.sh
+bindsym $mod+Shift+p exec --no-startup-id ~/cron/monitor-setup.sh lcd-only
+bindsym Shift+XF86Display exec --no-startup-id ~/cron/monitor-setup.sh lcd-only
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -284,8 +286,9 @@ bindsym $mod+F11 exec light -U 5
 
 # Printscreen controls (Gnome)
 ## Make sure to run: mkdir -p ~/Pictures/Screenshots
-bindsym Print exec gnome-screenshot -B -f ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png
-bindsym Shift+Print exec gnome-screenshot -a -B -f ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png --display=$DISPLAY
+bindsym --release Print exec gnome-screenshot -B -f ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png
+#bindsym Shift+Print exec gnome-screenshot -a -B -f ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png --display=$DISPLAY
+bindsym --release Shift+Print exec gnome-screenshot -a -B -f ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png --display=:0
 
 # Printscreen controls (KDE)
 #bindsym Print exec spectacle -bn -o ~/Pictures/Screenshots/$(date +%F-%H-%M-%S-%N).png
