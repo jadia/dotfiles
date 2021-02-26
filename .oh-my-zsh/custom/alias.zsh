@@ -37,7 +37,7 @@ alias vpn='sudo openvpn ~/cron/vpn/nitish.ovpn'
 alias rescan='nmcli dev wifi rescan'
 alias copyshow='clipcopy; clippaste | bat' # Copy content to clipboard + print using bat
 alias mkexec='sudo chmod +x'
-
+alias vpython='source /home/nitish/virtualenv/venv/bin/activate'
 
 # Git
 alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
