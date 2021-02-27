@@ -144,8 +144,14 @@ sudo systemctl restart bluetooth
 
 ## Lid Management
 
-Uncomment `HandleLidSwitch=suspend` in `/etc/systemd/logind.conf`  
+Uncomment the following in `/etc/systemd/logind.conf` file
 
+```vim
+HandlePowerKey=ignore
+HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=suspend
+HandleLidSwitchDocked=suspend
+```
 [Source](https://forum.manjaro.org/t/i3-suspend-on-lid-close/11305)
 
 # Application Installation
