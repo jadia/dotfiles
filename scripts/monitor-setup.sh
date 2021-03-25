@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-#declare -a modes=( hdmi-only lcd-only extended mirrored )
-declare -a modes=( extended hdmi-only lcd-only mirrored )
+#declare -a modes=( extended hdmi-only lcd-only mirrored )
+declare -a modes=( extended lcd-only )
 
 MONITOR_SETUP="/tmp/monitor_setup"
 I3_RESTART="/usr/bin/i3-msg restart"
