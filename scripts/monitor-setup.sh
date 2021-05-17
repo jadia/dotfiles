@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
-#declare -a modes=( hdmi-only lcd-only extended mirrored )
-declare -a modes=( extended hdmi-only lcd-only mirrored )
+#declare -a modes=( extended hdmi-only lcd-only mirrored )
+declare -a modes=( extended lcd-only )
 
 MONITOR_SETUP="/tmp/monitor_setup"
 I3_RESTART="/usr/bin/i3-msg restart"
-WALLPAPER_RESET="feh --bg-scale $HOME/Pictures/wallpaper.jpg"
+WALLPAPER_RESET="feh --bg-scale --randomize /home/nitish/dotfiles/wallpapers/*"
 #LAPTOP_DISPLAY="eDP-1-1" #7567
 LAPTOP_DISPLAY="eDP-1" #5402
 #SECOND_DISPLAY="HDMI-0" # 7567

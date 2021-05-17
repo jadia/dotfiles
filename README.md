@@ -8,6 +8,13 @@
 sudo apt-get update && sudo apt-get install -y i3
 ```
 
+## Install tools
+
+```bash
+sudo apt install -y flameshot
+
+```
+
 ## Enable touchpad gestures
 
 Check if `/etc/X11/xorg.conf.d/` directory exists or not. If not, create one.
@@ -117,10 +124,41 @@ current=$(pacmd dump-volumes | awk 'NR==1{print $8}' | sed 's/\%//')
 
 Or try to use pulseaudio-ctl instead which by default limits the volume to 100%.
 
+
+### Suddenly sound stops from speaker/headphones
+
+```bash
+sudo apt install pavucontrol -y
+pavucontrol
+```
+and select the correct sound card.
+This could be due to HDMI attached, where the laptop sends the audio output to the HDMI sink (or card, whatever).
+
+### Bluetooth earphones issue
+
+Error about "Protocal not available"
+
+```bash
+sudo apt-get install pulseaudio-module-bluetooth -y
+pactl load-module module-bluetooth-discover
+pulseaudio -k
+pulseaudio -D
+rm -r ~/.config/pulse; pulseaudio -k
+sudo systemctl restart bluetooth
+```
+
+[Source](https://askubuntu.com/questions/801404/bluetooth-connection-failed-blueman-bluez-errors-dbusfailederror-protocol-no)
+
 ## Lid Management
 
-Uncomment `HandleLidSwitch=suspend` in `/etc/systemd/logind.conf`  
+Uncomment the following in `/etc/systemd/logind.conf` file
 
+```vim
+HandlePowerKey=ignore
+HandleLidSwitch=suspend
+HandleLidSwitchExternalPower=suspend
+HandleLidSwitchDocked=suspend
+```
 [Source](https://forum.manjaro.org/t/i3-suspend-on-lid-close/11305)
 
 # Application Installation

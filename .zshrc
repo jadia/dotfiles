@@ -76,6 +76,8 @@ plugins=(git
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 HIST_STAMPS="dd.mm.yyyy"
+HISTSIZE=1000000000
+SAVEHIST=$HISTSIZE
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -92,8 +94,8 @@ source $ZSH/oh-my-zsh.sh
 SPACESHIP_USER_SHOW="always"
 SPACESHIP_CHAR_SYMBOL=" >"
 SPACESHIP_CHAR_SUFFIX=" "
-SPACESHIP_BATTERY_THRESHOLD="30"
-#SPACESHIP_BATTERY_THRESHOLD="0"
+SPACESHIP_BATTERY_THRESHOLD="50"
+SPACESHIP_BATTERY_SHOW="charged"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
