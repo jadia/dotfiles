@@ -42,6 +42,7 @@ checkdiff ~/.zshrc $DOTDIR/.zshrc
 checkdiff ~/.oh-my-zsh/custom/func.zsh $DOTDIR/.oh-my-zsh/custom/func.zsh
 checkdiff ~/.oh-my-zsh/custom/env.zsh $DOTDIR/.oh-my-zsh/custom/env.zsh
 checkdiff ~/.oh-my-zsh/custom/alias.zsh $DOTDIR/.oh-my-zsh/custom/alias.zsh
+checkdiff ~/.oh-my-zsh/custom/jpost.zsh $DOTDIR/.oh-my-zsh/custom/jpost.zsh
 
 # Sync .tmux
 mkdir -p $DOTDIR/.tmux

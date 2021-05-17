@@ -10,7 +10,7 @@ localServer() { if [[ $1 == 'start' ]]; then; docker run --rm --name local-nginx
 docker-restore() { unset DOCKER_TLS_VERIFY; unset DOCKER_HOST; unset DOCKER_CERT_PATH; unset DOCKER_MACHINE_NAME; }
 
 #zprof
-## Stole from arush-sal
+## Adapted from arush-sal
 # if [ "$TMUX" = "" ]; then
 # 	 if [[ -n $(pgrep tmux) ]]; then	
 # 		 if tmux ls|grep -q -e "0: ."; then tmux attach-session -t 0; else tmux new-session -s 0; fi

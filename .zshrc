@@ -76,6 +76,8 @@ plugins=(git
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
 HIST_STAMPS="dd.mm.yyyy"
+HISTSIZE=1000000000
+SAVEHIST=$HISTSIZE
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder

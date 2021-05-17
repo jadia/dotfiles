@@ -8,6 +8,13 @@
 sudo apt-get update && sudo apt-get install -y i3
 ```
 
+## Install tools
+
+```bash
+sudo apt install -y flameshot
+
+```
+
 ## Enable touchpad gestures
 
 Check if `/etc/X11/xorg.conf.d/` directory exists or not. If not, create one.
