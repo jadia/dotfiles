@@ -27,6 +27,7 @@ DISPLAY=:0
 @reboot bash -c "mkdir -p /tmp/nitish/"
 @reboot bash -c "/home/nitish/cron/fan_status.py"
 @reboot bash -c "/home/nitish/dotfiles/dotfile-sync.sh"
+#15 * * * * bash -c "feh --bg-scale --randomize /home/nitish/dotfiles/wallpapers-haven/*"
 #*/1 * * * * bash -c "/home/nitish/dotfiles/dotfile-sync.sh >> /tmp/nitish/dotfiles.log 2>&1"
 #*/1 * * * * bash -c "XDG_RUNTIME_DIR=/run/user/$(id -u); python3 /home/nitish/cron/test.py"
 #*/1 * * * * bash -c "python3 /home/nitish/cron/test.py"

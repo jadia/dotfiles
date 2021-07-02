@@ -241,6 +241,9 @@ exec --no-startup-id feh --randomize --bg-scale /home/nitish/dotfiles/wallpapers
 #Battery notification
 exec --no-startup-id ~/cron/i3-battery-popup.sh -N -L 30
 
+
+exec --no-startup-id ~/cron/bg_change.py
+
 # Pulse Audio controls
 # The name of sink is added instead of sink number '0' because the value keep changing
 # after few restarts. But, adding @DEFAULT_SINK@ also works now!

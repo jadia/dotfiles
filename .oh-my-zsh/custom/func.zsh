@@ -4,10 +4,10 @@
 
 # hddoff() { sudo udisksctl power-off -b /dev/$1; }
 
-localServer() { if [[ $1 == 'start' ]]; then; docker run --rm --name local-nginx -v ~/Documents/localShare:/usr/share/nginx/html:ro -v ~/Documents/localShare/default.conf:/etc/nginx/conf.d/default.conf -p 80:80 -d nginx; fi; if [[ $1 == 'stop' ]]; then; docker stop local-nginx; fi; }
+# localServer() { if [[ $1 == 'start' ]]; then; docker run --rm --name local-nginx -v ~/Documents/localShare:/usr/share/nginx/html:ro -v ~/Documents/localShare/default.conf:/etc/nginx/conf.d/default.conf -p 80:80 -d nginx; fi; if [[ $1 == 'stop' ]]; then; docker stop local-nginx; fi; }
 #alias config='/usr/bin/git --git-dir=/home/nitish/.cfg/ --work-tree=/home/nitish'
 
-docker-restore() { unset DOCKER_TLS_VERIFY; unset DOCKER_HOST; unset DOCKER_CERT_PATH; unset DOCKER_MACHINE_NAME; }
+# docker-restore() { unset DOCKER_TLS_VERIFY; unset DOCKER_HOST; unset DOCKER_CERT_PATH; unset DOCKER_MACHINE_NAME; }
 
 #zprof
 ## Adapted from arush-sal
@@ -59,16 +59,17 @@ function extract {
 fi
 }
 
-transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
-tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; echo ""; }
+# transfer() { if [ $# -eq 0 ]; then echo -e "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md"; return 1; fi
+# tmpfile=$( mktemp -t transferXXX ); if tty -s; then basefile=$(basename "$1" | sed -e 's/[^a-zA-Z0-9._-]/-/g'); curl --progress-bar --upload-file "$1" "https://transfer.sh/$basefile" >> $tmpfile; else curl --progress-bar --upload-file "-" "https://transfer.sh/$1" >> $tmpfile ; fi; cat $tmpfile; rm -f $tmpfile; echo ""; }
 
 
 yt () {
   ytdl_args="-o %(title)s.%(ext)s"
   if [[ $1 == *"list"* ]]; then
-    ytdl_args="-o %(playlist_index)2d-%(title)s.%(ext)s"
+    ytdl_args="-o %(playlist_index)02d-%(title)s.%(ext)s"
   fi
-  youtube-dl --ignore-errors -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' --external-downloader aria2c --external-downloader-args -x10 $(echo $ytdl_args) $@ && notify-send -t 5000 "youtube-dl: Done" || notify-send -t 5000 -u "critical" "youtube-dl: Error"
+  # youtube-dl --ignore-errors -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' --external-downloader aria2c --external-downloader-args '-j 5 -x 16 -s 16 -k 20M'  $(echo $ytdl_args) $@ && notify-send -t 5000 "youtube-dl: Done" || notify-send -t 5000 -u "critical" "youtube-dl: Error"
+  youtube-dl --ignore-errors -f 'bestvideo+bestaudio' $(echo $ytdl_args) $@ && notify-send -t 5000 "youtube-dl: Done" || notify-send -t 5000 -u "critical" "youtube-dl: Error"
 }
 
 yta () {
