@@ -16,7 +16,7 @@ images = glob.glob('/home/nitish/dotfiles/wallpapers-haven/*')
 
 first = images[0]
 
-delay = 5 #5 minutes.
+delay = 15 #15 minutes.
 
 while True:
 	#randomize the order. 
@@ -25,7 +25,7 @@ while True:
 		random.shuffle(images)
 	
 	for image in images:
-		feh = subprocess.Popen(['feh', '--bg-fill', image])
+		feh = subprocess.Popen(['feh', '--bg-scale', image])
 		time.sleep(delay * 60)
 
 		#record the last image.

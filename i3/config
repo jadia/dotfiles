@@ -145,29 +145,6 @@ bindsym $mod+Ctrl+Left move workspace to output left
 bindsym $mod+Ctrl+Up move workspace to output above
 bindsym $mod+Ctrl+Down move workspace to output below
 
-# Fix an application to a workspace
-#assign [class="Firefox"] $ws2
-#assign [class="Google-chrome"] $ws2
-assign [class="code"] $ws3
-assign [class="Code"] $ws3
-#assign [class="cmus"] $ws5
-#assign [class="realvnc-vncviewer"] $ws9
-#for_window [class="Spotify"] move to workspace $ws5
-assign [class="vlc"] $ws6
-#assign [class="qBittorrent"] $ws7
-#assign [class="weechat"] $ws8
-#assign [class="Riot"] $ws9
-#assign [class="TelegramDesktop"] $ws9
-assign [class="Slack"] $ws8
-assign [class="zoom"] $ws9
-assign [class="TogglDesktop"] $ws10
-assign [class="Toggl Desktop"] $ws10
-for_window [class="Toggl Desktop"] floating enable
-
-#Multi Monitor Cycle-through
-bindsym XF86Display exec --no-startup-id ~/cron/monitor-setup.sh
-bindsym $mod+p exec --no-startup-id ~/cron/monitor-setup.sh
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -210,84 +187,110 @@ bar {
 		tray_output primary
 }
 
-#bindsym $mod+n exec bash -c "XDG_CURRENT_DESKTOP=KDE && dolphin"
 
-bindsym $mod+n exec nautilus 
-bindsym $mod+g exec google-chrome
-#bindsym $mod+b exec brave-browser
-bindsym $mod+b exec firefox
-bindsym $mod+Shift+g exec google-chrome --args --incognito
+###############################################################################
+############                CUSTOM USER CONFIG
+###############################################################################
 
-# Bluetooth service
+
+################### Fix applications to a workspace ####################
+
+assign [class="Firefox"] $ws5
+#assign [class="Google-chrome"] $ws2
+assign [class="code"] $ws3
+assign [class="Code"] $ws3
+#assign [class="cmus"] $ws5
+#assign [class="realvnc-vncviewer"] $ws9
+#for_window [class="Spotify"] move to workspace $ws5
+assign [class="vlc"] $ws6
+#assign [class="qBittorrent"] $ws7
+#assign [class="weechat"] $ws8
+#assign [class="Riot"] $ws9
+assign [class="TelegramDesktop"] $ws9
+#assign [class="Slack"] $ws8
+#assign [class="zoom"] $ws9
+assign [class="TogglDesktop"] $ws10
+assign [class="Toggl Desktop"] $ws10
+
+
+################### Start-up: Essential Services ####################
+
+## Bluetooth service ##
 exec_always --no-startup-id blueman-applet
 
-# Start clipboard service
+## Start clipboard service ##
 exec --no-startup-id copyq 
 
-# Start network management service (wifi)
-exec --no-startup-id nm-applet
-
-# Lock screen
-# Blank screen
-#bindsym $mod+x exec i3lock -c 000000 
-# with wallpaper
-bindsym $mod+x exec i3lock -t -i /home/nitish/Pictures/lock-screen.png
-
-# Background
-#exec_always --no-startup-id feh --bg-scale /home/nitish/Pictures/wallpaper.jpg
-exec --no-startup-id feh --randomize --bg-scale /home/nitish/dotfiles/wallpapers/*
-
-
-#Battery notification
+## Battery notification ##
 exec --no-startup-id ~/cron/i3-battery-popup.sh -N -L 30
 
+## Start network management service (wifi) ##
+exec_always --no-startup-id nm-applet
+#exec --no-startup-id dbus-launch nm-applet
 
+## Lock screen ##
+##Blank screen
+#bindsym $mod+x exec i3lock -c 000000 
+
+##with wallpaper
+bindsym $mod+x exec i3lock -t -i /home/nitish/Pictures/lock-screen.png
+
+## Background wallpaper ##
+#exec_always --no-startup-id feh --bg-scale /home/nitish/Pictures/wallpaper.jpg
+exec --no-startup-id feh --randomize --bg-scale /home/nitish/dotfiles/wallpapers/*
+## Automatically change the wallpaper ##
 exec --no-startup-id ~/cron/bg_change.py
 
-# Pulse Audio controls
+
+################### Audio controls ####################
+
+# Requires Pulse Audio to be installed
 # The name of sink is added instead of sink number '0' because the value keep changing
 # after few restarts. But, adding @DEFAULT_SINK@ also works now!
-# If @DEFAULT_SINK@ method stops working, take a look at pulseaudio-ctl
+# If @DEFAULT_SINK@ method stops working, take a look at pulseaudio-ctl or use pavucontrol for GUI
 
+## Older 7567 config
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink +5% #increase sound volume
 #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink -5% #decrease sound volume
 #bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink toggle # mute sound
 #bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle # mute mic
-##########
+
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% #decrease sound volume
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle # mute sound
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle # mute mic
 
-# re binding: easy access
+## re-binding the same audio controls for easy access
 bindsym $mod+F1 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym $mod+F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym $mod+F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym $mod+F4 exec --no-startup-id pactl set-source-mute 1 toggle
 
-
 # Set default-sink to speakers+headphones (Issues when HDMI monitor is connected)
 bindsym $mod+XF86AudioMute exec bash -c "pactl set-default-sink alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp__sink"
 
-# Music controls
+
+################### Music controls ####################
+
 ## Requires playerctl to be installed
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause # toggle play-pause media
 bindsym $mod+F6 exec --no-startup-id playerctl play-pause
 
-# Sreen brightness controls
-### xbacklight supported then use below 
+################### Sreen brightness controls #####################
 
+### xbacklight supported then use below 
 #bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 #bindsym $mod+F12 exec xbacklight -inc 10
 #bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 #bindsym $mod+F11 exec xbacklight -dec 10 
 
 ### When xbacklight is not working then use below
-
 bindsym XF86MonBrightnessUp exec light -A 5 # increase screen brightness
 bindsym $mod+F12 exec light -A 5
 bindsym XF86MonBrightnessDown exec light -U 5 # decrease screen brightness
 bindsym $mod+F11 exec light -U 5
+
+################### Screenshot control ####################
 
 # Printscreen controls (Gnome)
 ## Make sure to run: mkdir -p ~/Pictures/Screenshots
@@ -303,15 +306,26 @@ bindsym $mod+F11 exec light -U 5
 bindsym --release Print exec flameshot full -c -p ~/Pictures/Screenshots
 bindsym --release Shift+Print exec flameshot gui -p ~/Pictures/Screenshots
 
-# Custom keybinds
+
+################### Set Default Workspace ####################
+
+exec i3-msg 'workspace $ws1; exec /usr/bin/i3-sensible-terminal;'
+#exec i3-msg 'workspace $ws2; exec /usr/bin/google-chrome;'
+
+
+################### Custom Keybinds ####################
+
+
+## Multi Monitor Cycle-through ##
+bindsym XF86Display exec --no-startup-id ~/cron/monitor-setup.sh
+bindsym $mod+p exec --no-startup-id ~/cron/monitor-setup.sh
 
 bindsym $mod+F9 exec --no-startup-id ~/cron/get_fan_speed.py
 bindsym F9 exec pavucontrol
 
-# UoH network connect bind
-#bindsym F7 exec --no-startup-id /home/nitish/cron/authenticate.sh
+bindsym $mod+n exec nautilus 
+bindsym $mod+g exec google-chrome
+#bindsym $mod+b exec brave-browser
+bindsym $mod+b exec firefox
+bindsym $mod+Shift+g exec google-chrome --args --incognito
 
-#Default workspace settings
-exec i3-msg 'workspace $ws1; exec /usr/bin/i3-sensible-terminal;'
-#exec i3-msg 'workspace $ws2; exec /usr/bin/google-chrome;'
-#exec i3-msg 'workspace $ws8; exec /snap/bin/slack'

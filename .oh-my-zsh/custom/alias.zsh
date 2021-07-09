@@ -24,12 +24,12 @@ alias cal='cal -3'
 #alias untar='tar -xvf'
 #alias listvm='sudo virsh list --all' # List all KVM machines
 alias rsync='rsync -avzhP'
-#alias downit='aria2c -x16' # download with 16 parallel connections
+alias downit='aria2c -x16 -s16' # download with 16 parallel connections
 #alias til='cd /home/nitish/til' # Delete later
 alias ndone='ntfy done'
 #alias sl='sl -ela' # Train
 alias ram="free -h | awk ' NR==2 {print \$3}'" # how much ram is being used
-alias speedtest="speedtest --server-id=3663 -u MB/s"
+alias speedtest-indore="speedtest --server-id=3663 -u MB/s"
 alias mknitish="sudo chown -R nitish:nitish"
 alias img="feh -FZrD3"
 alias path="echo $PATH | tr -s ':' '\n'" # Pretty print the path
