@@ -2,6 +2,8 @@
 
 Most of the wallpapers are downloaded from [wallhaven.cc](https://wallhaven.cc/).  
 
+Another source for such wallpapers: [https://www.deviantart.com/bisbiswas/gallery](https://www.deviantart.com/bisbiswas/gallery)
+
 The categories these wallpapers fit in are:
 
 1. Forest
