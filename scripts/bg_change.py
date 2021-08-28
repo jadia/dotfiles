@@ -8,7 +8,7 @@ import time
 
 wall_dir = '/home/nitish/dotfiles/wallpapers-haven/'
 
-delay = 10 #15 minutes.
+delay = 5 #5 minutes.
 
 while True:
 	feh = subprocess.Popen(['feh', '--bg-scale', '--randomize', wall_dir])
