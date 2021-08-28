@@ -3,34 +3,16 @@
 # the image every 5 minutes.
 # Adapted from: https://gist.github.com/FlyingJester/9142028
 
-import os
-import glob
 import subprocess
 import time
-import random
 
-images = glob.glob('/home/nitish/dotfiles/wallpapers-haven/*')
+wall_dir = '/home/nitish/dotfiles/wallpapers-haven/'
 
-#for image in images:
-#	print image
-
-first = images[0]
-
-delay = 15 #15 minutes.
+delay = 10 #15 minutes.
 
 while True:
-	#randomize the order. 
-	#Ensure that we don't have the same first element as the last element.
-	while first == images[0]:
-		random.shuffle(images)
+	feh = subprocess.Popen(['feh', '--bg-scale', '--randomize', wall_dir])
+	time.sleep(delay * 60)
 	
-	for image in images:
-		feh = subprocess.Popen(['feh', '--bg-scale', image])
-		time.sleep(delay * 60)
-
-		#record the last image.
-		first = image
-		
-		#be a nice guy.
-		feh.terminate()
-	random.shuffle(images)
+	#be a nice guy.
+	feh.terminate()
