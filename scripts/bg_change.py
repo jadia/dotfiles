@@ -6,13 +6,13 @@
 import subprocess
 import time
 
-wall_dir = '/home/nitish/dotfiles/wallpapers-haven/'
+wall_dir = '/home/nitish/dotfiles/wallpapers/'
 
 delay = 5 #5 minutes.
 
 while True:
 	feh = subprocess.Popen(['feh', '--bg-scale', '--randomize', wall_dir])
 	time.sleep(delay * 60)
-	
+
 	#be a nice guy.
 	feh.terminate()
