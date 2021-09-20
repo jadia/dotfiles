@@ -35,6 +35,7 @@ alias copyshow='clipcopy; clippaste | bat' # Copy content to clipboard + print u
 #alias mkexec='sudo chmod +x'
 alias vpython='source /home/nitish/virtualenv/venv/bin/activate'
 alias _lsblk='lsblk -af | grep -sv loop' # List block devices without snap loop mounts
+alias bku='/home/nitish/workspace/github/backup-utility/main.sh'
 
 # Git
 alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
