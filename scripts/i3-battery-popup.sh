@@ -186,6 +186,7 @@ main (){
             if [[ $PERC -lt $LIMIT ]]; then
                 debug "showing warning"
                 show_message "${MESSAGE}"
+                ntfy -t "BATTERY" send "${MESSAGE}"
 
                 if [[ -z $POPUP_CLICKED ]]; then
                     # first click; set limit lower
