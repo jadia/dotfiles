@@ -201,12 +201,15 @@ assign [class="code"] $ws3
 assign [class="Code"] $ws3
 #assign [class="cmus"] $ws5
 #assign [class="realvnc-vncviewer"] $ws9
-#for_window [class="Spotify"] move to workspace $ws5
+for_window [class="Spotify"] move to workspace $ws9
+for_window [class="spotify"] move to workspace $ws9
 assign [class="vlc"] $ws6
 #assign [class="qBittorrent"] $ws7
 #assign [class="weechat"] $ws8
 #assign [class="Riot"] $ws9
 assign [class="TelegramDesktop"] $ws9
+assign [class="spotify"] $ws9
+assign [class="Spotify"] $ws9
 #assign [class="Slack"] $ws8
 #assign [class="zoom"] $ws9
 assign [class="TogglDesktop"] $ws10
@@ -327,5 +330,6 @@ bindsym $mod+n exec nautilus
 bindsym $mod+g exec google-chrome
 #bindsym $mod+b exec brave-browser
 bindsym $mod+b exec firefox
+bindsym $mod+m exec spotify
 bindsym $mod+Shift+g exec google-chrome --args --incognito
 
