@@ -48,13 +48,13 @@ alias vssh="vagrant ssh"
 #alias re="vagrant reload"
 
 # Kubernetes
-alias kd='kubectl describe'
-alias kg='kubectl get'
-alias ctx='kubectx'
-alias cns='kubens'
-alias minikube-update=' sudo curl -Lo /tmp/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
-						&& sudo mv /tmp/minikube /usr/local/bin/minikube \
-						&& sudo chmod +x /usr/local/bin/minikube'
+#alias kd='kubectl describe'
+#alias kg='kubectl get'
+#alias ctx='kubectx'
+#alias cns='kubens'
+#alias minikube-update=' sudo curl -Lo /tmp/minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 \
+#						&& sudo mv /tmp/minikube /usr/local/bin/minikube \
+#						&& sudo chmod +x /usr/local/bin/minikube'
 #alias k9s='docker run --rm -it -v ~/.kube/config:/root/.kube/config -v ~/.minikube/:/home/nitish/.minikube quay.io/derailed/k9s'
 
 # Long Tasks
