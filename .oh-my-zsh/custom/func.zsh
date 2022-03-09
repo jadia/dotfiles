@@ -72,6 +72,15 @@ yt () {
   youtube-dl --ignore-errors -f 'bestvideo+bestaudio' $(echo $ytdl_args) $@ && notify-send -t 5000 "youtube-dl: Done" || notify-send -t 5000 -u "critical" "youtube-dl: Error"
 }
 
+
+yt-aria () {
+  ytdl_args="-o %(title)s.%(ext)s"
+  if [[ $1 == *"list"* ]]; then
+    ytdl_args="-o %(playlist_index)02d-%(title)s.%(ext)s"
+  fi
+  yt-dlp --ignore-errors -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4' --external-downloader aria2c --external-downloader-args '-j 5 -x 16 -s 16 -k 10M'  $(echo $ytdl_args) $@ && notify-send -t 5000 "youtube-dl: Done" || notify-send -t 5000 -u "critical" "youtube-dl: Error"
+}
+
 yta () {
   youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --ignore-errors -o "%(title)s.%(ext)s" --external-downloader aria2c --external-downloader-args -x10 $@ && notify-send -t 5000 "youtube-dl: Done" || notify-send -t 5000 -u "critical" "youtube-dl: Error"
 }
