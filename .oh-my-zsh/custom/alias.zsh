@@ -12,7 +12,6 @@ alias jekyll-server='docker run --rm -ti -v $(pwd):/work -p 4000:4000 jadia/bund
 
 
 # General 
-
 alias dow='cd ~/Downloads'
 alias doc='cd ~/Documents'
 alias tmux='tmux -u'
@@ -22,7 +21,7 @@ alias cal='cal -3'
 #alias listvm='sudo virsh list --all' # List all KVM machines
 alias _rsync='rsync -avzhP'
 alias downit='aria2c -x16 -s16' # download with 16 parallel connections
-alias ndone='ntfy done'
+#alias ndone='ntfy done'
 #alias sl='sl -ela' # Train
 #alias ram="free -h | awk ' NR==2 {print \$3}'" # how much ram is being used
 alias _speedtest="speedtest --server-id=3663 -u MB/s"
@@ -36,6 +35,7 @@ alias copyshow='clipcopy; clippaste | bat' # Copy content to clipboard + print u
 alias vpython='source /home/nitish/virtualenv/venv/bin/activate'
 alias _lsblk='lsblk -af | grep -sv loop' # List block devices without snap loop mounts
 alias bku='/home/nitish/workspace/github/backup-utility/main.sh'
+alias _df='df -h -x squashfs -x tmpfs -x devtmpfs'
 
 # Git
 alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
