@@ -159,6 +159,12 @@ HandleLidSwitch=suspend
 HandleLidSwitchExternalPower=suspend
 HandleLidSwitchDocked=suspend
 ```
+
+You can leave `HandleLidSwitchDocked=suspend` commented if you do not wish to suspend when Docked.   
+
+Restart your system or run `sudo systemctl restart systemd-logind` after closing 
+all the applications.
+
 [Source](https://forum.manjaro.org/t/i3-suspend-on-lid-close/11305)
 
 # Application Installation
@@ -207,3 +213,13 @@ assign [class="Google-chrome"] $ws2
 ```bash
 xev -event keyboard  | egrep -o 'keycode.*\)'
 ```
+
+## Setup multi-monitors
+
+[arandr](http://christian.amsuess.com/tools/arandr/) gives a GUI and helps you store shell scripts
+with correct `xrandr` commands.   
+
+```bash
+sudo apt install -y arandr
+```
+

@@ -53,6 +53,7 @@ checkdiff ~/.tmux/.tmux.conf.local $DOTDIR/.tmux/.tmux.conf.local
 
 # Sync .vimrc
 checkdiff ~/.vimrc $DOTDIR/.vimrc
+
 # Sync i3
 mkdir -p $DOTDIR/i3
 checkdiff ~/.config/i3/config $DOTDIR/i3/config
