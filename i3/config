@@ -323,6 +323,11 @@ exec i3-msg 'workspace $ws1; exec /usr/bin/i3-sensible-terminal;'
 bindsym XF86Display exec --no-startup-id ~/cron/monitor-setup.sh
 bindsym $mod+p exec --no-startup-id ~/cron/monitor-setup.sh
 
+## Power Savings status
+bindsym $mod+m exec --no-startup-id ~/cron/dpms_toggle.sh
+bindsym $mod+Shift+m exec --no-startup-id ~/cron/dpms_toggle.sh --status
+
+
 bindsym $mod+F9 exec --no-startup-id ~/cron/get_fan_speed.py
 bindsym F9 exec pavucontrol
 
@@ -330,7 +335,7 @@ bindsym $mod+n exec nautilus
 bindsym $mod+g exec google-chrome
 #bindsym $mod+b exec brave-browser
 bindsym $mod+b exec firefox
-bindsym $mod+m exec spotify
+#bindsym $mod+m exec spotify
 bindsym $mod+Shift+g exec google-chrome --args --incognito
 bindsym $mod+Shift+o exec --no-startup-id pactl set-default-sink alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__hw_sofhdadsp_3__sink
 bindsym $mod+Shift+h exec --no-startup-id pactl set-default-sink alsa_output.usb-Plantronics_Poly_BT700_BC98E67C38B44034823D1A88880D7A4F-00.analog-stereo
