@@ -28,7 +28,7 @@ alias _speedtest="speedtest --server-id=3663 -u MB/s"
 alias mknitish="sudo chown -R nitish:nitish"
 alias img="feh -FZrD3"
 alias _path="echo $PATH | tr -s ':' '\n'" # Pretty print the path
-alias vpn='sudo openvpn ~/cron/vpn/nitish.ovpn'
+#alias vpn='sudo openvpn ~/cron/vpn/nitish.ovpn'
 alias rescan='nmcli dev wifi rescan'
 alias copyshow='clipcopy; clippaste | bat' # Copy content to clipboard + print using bat
 #alias mkexec='sudo chmod +x'

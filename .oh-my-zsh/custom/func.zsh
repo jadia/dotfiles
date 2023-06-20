@@ -84,3 +84,14 @@ yt-aria () {
 yta () {
   youtube-dl --extract-audio --audio-format mp3 --audio-quality 0 --ignore-errors -o "%(title)s.%(ext)s" --external-downloader aria2c --external-downloader-args -x10 $@ && notify-send -t 5000 "youtube-dl: Done" || notify-send -t 5000 -u "critical" "youtube-dl: Error"
 }
+
+function _vpn() {
+  if [ ! -f /proc/sys/net/ipv4/conf/CloudflareWARP ]; then
+    echo "Connecting to VPN..."
+    warp-cli connect
+  else
+    echo "Disconnecting from VPN..."
+    warp-cli disconnect
+  fi
+}
+
