@@ -86,7 +86,7 @@ yta () {
 }
 
 function _vpn() {
-  if [ ! -f /proc/sys/net/ipv4/conf/CloudflareWARP ]; then
+  if [[ ! -f /proc/sys/net/ipv4/conf/CloudflareWARP/arp_filter ]]; then
     echo "Connecting to VPN..."
     warp-cli connect
   else
