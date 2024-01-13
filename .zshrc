@@ -143,3 +143,4 @@ setopt HIST_IGNORE_SPACE
 # if [ -f ~/.pass.sh ]; then
 #     source ~/.pass.sh
 # fi
+eval "$(mcfly init zsh)"
