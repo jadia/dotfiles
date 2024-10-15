@@ -35,10 +35,11 @@ alias copyshow='clipcopy; clippaste | bat' # Copy content to clipboard + print u
 alias vpython='source /home/nitish/virtualenv/venv/bin/activate'
 alias _lsblk='lsblk -af | grep -sv loop' # List block devices without snap loop mounts
 alias bku='/home/nitish/workspace/github/backup-utility/main.sh'
+alias laptop_backup='/home/nitish/workspace/github/backup-utility/laptop_backup.sh'
 alias _df='df -h -x squashfs -x tmpfs -x devtmpfs'
 
 # Git
-alias gcx='git commit -m "$(curl -s whatthecommit.com/index.txt)"'
+alias gcx='git commit -m "$(curl -s https://whatthecommit.com/index.txt)"'
 
 #Vagrant
 alias up="vagrant up"
