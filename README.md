@@ -223,3 +223,22 @@ with correct `xrandr` commands.
 sudo apt install -y arandr
 ```
 
+## Cursor size problem when using multiple monitors
+
+[A comment on Reddit](https://www.reddit.com/r/i3wm/comments/8ix88z/comment/jit8cxx/) and
+[Arch Wiki article](https://wiki.archlinux.org/title/Cursor_themes) ([Archive.org Backup](https://web.archive.org/web/20250115032852/https://wiki.archlinux.org/title/Cursor_themes)) states to do the following:
+
+Create a new file named `~/.xinitrc` and `~/.Xresources`.
+
+~/.Xresources
+```bash
+Xcursor.size: 16
+```
+
+~/.xinitrc
+```bash
+xrdb ~/.Xresources
+```
+
+Log off and log back into the i3wm.
+

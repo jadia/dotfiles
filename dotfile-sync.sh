@@ -60,6 +60,10 @@ mkdir -p $DOTDIR/i3
 checkdiff ~/.config/i3/config $DOTDIR/i3/config
 checkdiff ~/.config/i3/status.conf $DOTDIR/i3/status.conf
 
+# Sync X server configuration
+checkdiff ~/.xinitrc $DOTDIR/.xinitrc
+checkdiff ~/.Xresources $DOTDIR/.Xresources
+
 
 cd $DOTDIR;
 if [[ -n $(git status -s) ]]; then
