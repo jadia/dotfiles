@@ -96,3 +96,10 @@ function _vpn() {
   fi
 }
 
+function yolo() {
+    local messages_file=/home/nitish/dotfiles/commit_messages.txt
+    local random_message=$(shuf -n 1 $messages_file)
+    git commit -m "$random_message"
+    #echo "$random_message"
+}
+
