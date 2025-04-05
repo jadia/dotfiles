@@ -103,3 +103,25 @@ function yolo() {
     #echo "$random_message"
 }
 
+webshare_bandwidth() {
+  local result
+
+  result=$(
+    curl \
+      -sS \
+      "https://proxy.webshare.io/api/v2/stats/aggregate/" \
+      -H "Authorization: Token ${WEBSHARE_KEY}"
+  )
+
+  if [[ $? -ne 0 ]]; then
+    echo "Error fetching data from Webshare API." >&2
+    return 1
+  fi
+
+  echo "$result" | \
+    jq '{
+      bandwidth_used: ("\( (.bandwidth_total / 1024 / 1024 | round * 100 / 100) ) MB"),
+      bandwidth_projected: ("\( (.bandwidth_projected / 1024 / 1024 | round * 100 / 100) ) MB")
+    }'
+}
+
