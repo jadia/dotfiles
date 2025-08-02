@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+# Gemini Bash Helper
+
+PROMPT="You are a Linux terminal assistant. Respond ONLY with bash commands for the following request:"
+
+/home/nitish/dotfiles/scripts/gemini/gemini.py "$PROMPT $*"
+

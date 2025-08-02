@@ -10,7 +10,6 @@ alias docker_clear='docker rm $(docker ps -aq)'
 alias jekyll='docker run --rm -ti -v $(pwd):/work -p 4000:4000 jadia/bundler bundle exec jekyll'
 alias jekyll-server='docker run --rm -ti -v $(pwd):/work -p 4000:4000 jadia/bundler bundle exec jekyll serve --host 0.0.0.0'
 
-
 # General 
 alias dow='cd ~/Downloads'
 alias doc='cd ~/Documents'
