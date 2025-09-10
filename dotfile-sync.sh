@@ -36,7 +36,7 @@ checkdiff ~/cron/i3-battery-popup.sh $DOTDIR/scripts/i3-battery-popup.sh
 checkdiff ~/cron/monitor-setup.sh $DOTDIR/scripts/monitor-setup.sh
 checkdiff ~/cron/bg_change.py $DOTDIR/scripts/bg_change.py
 checkdiff ~/cron/dpms_toggle.sh $DOTDIR/scripts/dpms_toggle.sh
-
+checkdiff ~/cron/wifi_toggle.sh $DOTDIR/scripts/wifi_toggle.sh
 
 # Sync .zshrc
 mkdir -p $DOTDIR/.oh-my-zsh/custom

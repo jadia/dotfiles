@@ -31,3 +31,4 @@ DISPLAY=:0
 #*/1 * * * * bash -c "/home/nitish/dotfiles/dotfile-sync.sh >> /tmp/nitish/dotfiles.log 2>&1"
 #*/1 * * * * bash -c "XDG_RUNTIME_DIR=/run/user/$(id -u); python3 /home/nitish/cron/test.py"
 #*/1 * * * * bash -c "python3 /home/nitish/cron/test.py"
+* * * * * /bin/bash -c 'for i in {1..6}; do /home/nitish/cron/wifi_toggle.sh >> /tmp/wifi_toggle.log 2>&1; sleep 10; done'
