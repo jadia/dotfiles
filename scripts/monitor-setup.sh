@@ -2,7 +2,7 @@
 
 #declare -a modes=( extended hdmi-only lcd-only mirrored )
 declare -a modes=( extended lcd-only )
-declare -a dock_modes=( dual triple )
+declare -a dock_modes=( dual lcd-only )
 
 MONITOR_SETUP="/tmp/monitor_setup"
 I3_RESTART="/usr/bin/i3-msg restart"
@@ -10,9 +10,14 @@ WALLPAPER_RESET="feh --bg-scale --randomize /home/nitish/dotfiles/wallpapers/*"
 LAPTOP_DISPLAY="eDP-1" #5402
 SECOND_DISPLAY="HDMI-1" #5402
 # Dual Monitors
-LEFT_DISPLAY="DP-1-1-8"
-RIGHT_DISPLAY="DP-1-1-1"
+#LEFT_DISPLAY="DP-1-1-8" ## Office 24" hub
+#RIGHT_DISPLAY="DP-1-1-1" ## Office 24" with speakers
 
+LEFT_DISPLAY="DP-1-8" ## Chandu 27"
+RIGHT_DISPLAY="DP-1-1-8" ## Office 24" hub
+
+LEFT_MODE="2560x1440"   # 2K monitor
+RIGHT_MODE="1920x1080"  # 1080p monitor
 
 # DISPLAY_RESET="xrandr --output $LAPTOP_DISPLAY --auto --primary --dpi 96 --output $SECOND_DISPLAY --off"
 DISPLAY_RESET="xrandr --output $LAPTOP_DISPLAY --auto --primary --output $SECOND_DISPLAY --off --output $LEFT_DISPLAY --off --output $RIGHT_DISPLAY --off"
@@ -50,14 +55,18 @@ function switch_setup {
 
 		;;
 		"dual" )
-			xrandr --output eDP-1 --off --output HDMI-1 --off --output DP-1 --off --output DP-1-1 --off --output DP-1-1-8 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1-1-1 --mode 1920x1080 --pos 3840x0 --rotate normal
+			xrandr --output $LAPTOP_DISPLAY --off --output $SECOND_DISPLAY --off --output DP-1 --off --output DP-1-1 --off \
+				--output $RIGHT_DISPLAY --mode $RIGHT_MODE --pos ${LEFT_MODE/x*/}x0 --rotate normal \
+				--output $LEFT_DISPLAY --primary --mode $LEFT_MODE --pos 0x0 --rotate normal
 			echo "dual" > $MONITOR_SETUP
 			$I3_RESTART
 			$WALLPAPER_RESET
-
 		;;
 		"triple" )
-			xrandr --output eDP-1 --mode 1920x1080 --pos 2834x1080 --rotate normal --output HDMI-1 --off --output DP-1 --off --output DP-1-1 --off --output DP-1-1-8 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output DP-1-1-1 --mode 1920x1080 --pos 3840x0 --rotate normal
+			xrandr --output $LAPTOP_DISPLAY --mode 1920x1080 --pos $(($LEFT_MODE + $RIGHT_MODE))x1080 --rotate normal \
+				--output $SECOND_DISPLAY --off --output DP-1 --off --output DP-1-1 --off \
+				--output $RIGHT_DISPLAY --primary --mode $RIGHT_MODE --pos ${LEFT_MODE/x*/}x0 --rotate normal \
+				--output $LEFT_DISPLAY --mode $LEFT_MODE --pos 0x0 --rotate normal
 			echo "dual" > $MONITOR_SETUP
 			$I3_RESTART
 			$WALLPAPER_RESET
