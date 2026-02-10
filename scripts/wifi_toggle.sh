@@ -7,8 +7,7 @@
 #
 
 # --- Configuration ---
-#ETH_DEVICE="enx089204c53ee3"
-ETH_DEVICE="enx6c3c8cff3a16"
+ETH_DEVICE="enx089204c53ee3"
 WIFI_DEVICE="wlp43s0"
 
 # This is required for notify-send to work from cron.

@@ -10,13 +10,14 @@ WALLPAPER_RESET="feh --bg-scale --randomize /home/nitish/dotfiles/wallpapers/*"
 LAPTOP_DISPLAY="eDP-1" #5402
 SECOND_DISPLAY="HDMI-1" #5402
 # Dual Monitors
-#LEFT_DISPLAY="DP-1-1-8" ## Office 24" hub
-#RIGHT_DISPLAY="DP-1-1-1" ## Office 24" with speakers
+LEFT_DISPLAY="DP-1-1-8" ## Office 24" hub
+RIGHT_DISPLAY="DP-1-1-1" ## Office 24" with speakers
 
-LEFT_DISPLAY="DP-1-8" ## Chandu 27"
-RIGHT_DISPLAY="DP-1-1-8" ## Office 24" hub
+#LEFT_DISPLAY="DP-1-8" ## Chandu 27"
+#RIGHT_DISPLAY="DP-1-1-8" ## Office 24" hub
+#LEFT_MODE="2560x1440"   # 2K monitor
 
-LEFT_MODE="2560x1440"   # 2K monitor
+LEFT_MODE="1920x1080" 
 RIGHT_MODE="1920x1080"  # 1080p monitor
 
 # DISPLAY_RESET="xrandr --output $LAPTOP_DISPLAY --auto --primary --dpi 96 --output $SECOND_DISPLAY --off"
