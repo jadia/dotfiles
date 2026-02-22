@@ -125,3 +125,33 @@ function yolo() {
 #    }'
 #}
 
+treetrip() {
+  (
+    # 1. Print current directory size
+    du -sh .
+    
+    # 2. Generate tree with ignores and filter
+    # Add or remove patterns in the -I string as needed
+    tree -L 2 -D --timefmt '%Y-%m-%d' -I 'node_modules|.git|.venv|__pycache__|dist|build' | awk '
+      BEGIN { count = 0 }
+      
+      # Match standard ASCII or Unicode tree branches
+      /[|+-]--/ || /├──/ || /└──/ {
+        count++
+        if (count <= 20) {
+          print $0
+        } else if (count == 21) {
+          print "    ... (more files truncated)"
+        }
+        next
+      }
+      
+      # Reset counter for headers or directory breaks
+      {
+        print $0
+        count = 0
+      }
+    '
+  ) | copyshow
+}
+

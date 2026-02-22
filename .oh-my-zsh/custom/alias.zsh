@@ -30,6 +30,7 @@ alias _path="echo $PATH | tr -s ':' '\n'" # Pretty print the path
 #alias vpn='sudo openvpn ~/cron/vpn/nitish.ovpn'
 alias rescan='nmcli dev wifi rescan'
 alias copyshow='clipcopy; clippaste | bat' # Copy content to clipboard + print using bat
+#alias copyshow='clipcopy; copyq select 0; clippaste | bat'
 #alias mkexec='sudo chmod +x'
 alias vpython='source /home/nitish/virtualenv/venv/bin/activate'
 alias _lsblk='lsblk -af | grep -sv loop' # List block devices without snap loop mounts
