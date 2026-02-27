@@ -34,8 +34,9 @@ alias copyshow='clipcopy; clippaste | bat' # Copy content to clipboard + print u
 #alias mkexec='sudo chmod +x'
 alias vpython='source /home/nitish/virtualenv/venv/bin/activate'
 alias _lsblk='lsblk -af | grep -sv loop' # List block devices without snap loop mounts
-alias bku='/home/nitish/workspace/github/backup-utility/sync_data.sh'
-alias laptop_backup='/home/nitish/workspace/github/backup-utility/laptop_backup.sh'
+#alias bku='/home/nitish/workspace/github/backup-utility/sync_data.sh'
+alias backup-utility='/home/nitish/workspace/github/backup-utility/main.sh'
+#alias laptop_backup='/home/nitish/workspace/github/backup-utility/laptop_backup.sh'
 alias _df='df -h -x squashfs -x tmpfs -x devtmpfs'
 
 # Git
