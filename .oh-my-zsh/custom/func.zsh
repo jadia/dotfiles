@@ -155,3 +155,10 @@ treetrip() {
   ) | copyshow
 }
 
+gpg-ready() {
+  export GPG_TTY=$(tty)
+  gpg-connect-agent updatestartuptty /bye >/dev/null
+  echo test | gpg --local-user "$(git config --get user.signingkey)" --clearsign > /dev/null
+}
+
+
