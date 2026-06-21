@@ -1,3 +1,5 @@
+# Add deno completions to search path
+if [[ ":$FPATH:" != *":/home/nitish/.zsh/completions:"* ]]; then export FPATH="/home/nitish/.zsh/completions:$FPATH"; fi
 # If you come from bash you might have to change your $PATH.
 
 
@@ -152,3 +154,8 @@ export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init -)"
 
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/nitish/.local/bin:$PATH"
+. "/home/nitish/.deno/env"
